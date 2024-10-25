@@ -4,7 +4,8 @@
  */
 package daos;
 
-import Entidades.UnidadAcademicaEntidad;
+import Entidades.CarreraEntidad;
+import Entidades.CentroDeComputoEntidad;
 import exceptions.PersistenciaException;
 import interfaces.IConexionBD;
 import javax.persistence.EntityManager;
@@ -14,43 +15,49 @@ import javax.persistence.EntityTransaction;
  *
  * @author filor
  */
-public class UnidadAcademicaDAO {
+public class CentroDeComputoDAO {
     private IConexionBD conexionBD;
 
-    public UnidadAcademicaDAO(IConexionBD conexionBD) {
+    public CentroDeComputoDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
     
-    public void agregarUnidad(UnidadAcademicaEntidad unidad) throws PersistenciaException {
+    public void agregarCentro(CentroDeComputoEntidad centro) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         try {
             entityTransaction.begin();
-            entityManager.persist(unidad);
+            entityManager.persist(centro);
             entityTransaction.commit();
         } catch (Exception e) {
             if (entityTransaction.isActive()) {
                 entityTransaction.rollback();
             }
-            throw new PersistenciaException("Error al crear la unidad", e);
+            throw new PersistenciaException("Error al crear centro de computo", e);
         } finally {
             entityManager.close();
         }
     }
     
-    public UnidadAcademicaEntidad consultarUnidadPorID(Long id) throws PersistenciaException {
+    public void eliminarCentro(Long id) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
-        UnidadAcademicaEntidad unidad = null;
+        EntityTransaction entityTransaction = entityManager.getTransaction();
 
         try {
-            unidad = entityManager.find(UnidadAcademicaEntidad.class, id);
+            entityTransaction.begin();
+            CentroDeComputoEntidad centro = entityManager.find(CentroDeComputoEntidad.class, id);
+            if (centro != null) {
+                entityManager.remove(centro);
+            }
+            entityTransaction.commit();
         } catch (Exception e) {
-            throw new PersistenciaException("Error al leer abono", e);
+            if (entityTransaction.isActive()) {
+                entityTransaction.rollback();
+            }
+            throw new PersistenciaException("Error al eliminar el centro de computo", e);
         } finally {
             entityManager.close();
         }
-
-        return unidad;
     }
 }

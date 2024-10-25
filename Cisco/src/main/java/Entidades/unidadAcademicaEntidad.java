@@ -32,7 +32,7 @@ public class UnidadAcademicaEntidad implements Serializable {
     @Column(name="nombreUnidad",length=100,nullable=false)
     private String nombreUnidad;
     
-    @OneToMany(mappedBy = "centroUnidad", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "centroUnidad")
     private List<CentroDeComputoEntidad> centroUnidad;
     /**
      * 
