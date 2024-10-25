@@ -20,26 +20,45 @@ import javax.persistence.Table;
  * @author filor
  */
 @Entity
-@Table(name="tblUnidadesAcademicas")
-public class unidadAcademicaEntidad implements Serializable {
+@Table(name="UnidadAcademica")
+public class UnidadAcademicaEntidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name="idUnidadAcademica")
+    @Column(name="idUnidad")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="nombreUnidad",length=20,nullable=false)
+    @Column(name="nombreUnidad",length=100,nullable=false)
     private String nombreUnidad;
     
     @OneToMany(mappedBy = "centroUnidad", cascade = {CascadeType.PERSIST})
-    private List<centroDeComputoEntidad> centroUnidad;
+    private List<CentroDeComputoEntidad> centroUnidad;
     /**
      * 
      */
-    public unidadAcademicaEntidad() {
+    public UnidadAcademicaEntidad() {
     }
 
+    public UnidadAcademicaEntidad(String nombreUnidad) {
+        this.nombreUnidad = nombreUnidad;
+    }
+
+    
+    public UnidadAcademicaEntidad(String nombreUnidad, List<CentroDeComputoEntidad> centroUnidad) {
+        this.nombreUnidad = nombreUnidad;
+        this.centroUnidad = centroUnidad;
+    }
+
+    public List<CentroDeComputoEntidad> getCentroUnidad() {
+        return centroUnidad;
+    }
+
+    public void setCentroUnidad(List<CentroDeComputoEntidad> centroUnidad) {
+        this.centroUnidad = centroUnidad;
+    }
+
+    
     public Long getId() {
         return id;
     }
@@ -66,10 +85,10 @@ public class unidadAcademicaEntidad implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof unidadAcademicaEntidad)) {
+        if (!(object instanceof UnidadAcademicaEntidad)) {
             return false;
         }
-        unidadAcademicaEntidad other = (unidadAcademicaEntidad) object;
+        UnidadAcademicaEntidad other = (UnidadAcademicaEntidad) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

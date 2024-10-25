@@ -20,8 +20,8 @@ import javax.persistence.Table;
  * @author filor
  */
 @Entity
-@Table(name="tblBloqueos")
-public class bloqueoEntidad implements Serializable {
+@Table(name="Bloqueo")
+public class BloqueoEntidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -29,21 +29,21 @@ public class bloqueoEntidad implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(name = "fechaBloqueo", nullable = false)
+    @Column(name = "fechaDeBloqueo", nullable = false)
     private LocalDateTime fechaBloqueo;
     
-    @Column(name="Motivo",length=40,nullable=false)
+    @Column(name="motivo",length=40,nullable=true)
     private String motivo;
     
-    @ManyToOne(targetEntity = alumnoEntidad.class)
+    @ManyToOne(targetEntity = AlumnoEntidad.class)
     @JoinColumn(name = "idAlumno", nullable = false)
-    private alumnoEntidad bloqueoAlumno;
+    private AlumnoEntidad bloqueoAlumno;
     
 
     /**
      * 
      */
-    public bloqueoEntidad() {
+    public BloqueoEntidad() {
     }
 
     
@@ -65,10 +65,10 @@ public class bloqueoEntidad implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof bloqueoEntidad)) {
+        if (!(object instanceof BloqueoEntidad)) {
             return false;
         }
-        bloqueoEntidad other = (bloqueoEntidad) object;
+        BloqueoEntidad other = (BloqueoEntidad) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

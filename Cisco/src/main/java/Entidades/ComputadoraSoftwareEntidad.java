@@ -5,52 +5,34 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.time.LocalDateTime;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  *
  * @author filor
  */
 @Entity
-@Table(name="Reserva")
-public class ReservaEntidad implements Serializable {
+public class ComputadoraSoftwareEntidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name="idReserva")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "fechaReserva", nullable = false)
-    private LocalDateTime fechaReserva;
-    
-    @Column(name = "horaInicio", nullable = false)
-    private Time horaInicio;
-    
-    @Column(name = "horaFin", nullable = false)
-    private Time horaFin;
-    
-    @ManyToOne(targetEntity = AlumnoEntidad.class)
-    @JoinColumn(name = "idAlumno", nullable = false)
-    private AlumnoEntidad reservaAlumno;
-    
     @ManyToOne(targetEntity = ComputadoraEntidad.class)
     @JoinColumn(name = "idComputadora", nullable = false)
-    private ComputadoraEntidad reservaCompu;
+    private ComputadoraEntidad computadora;
     
-    /**
-     * 
-     */
-    public ReservaEntidad() {
+    @ManyToOne(targetEntity = SoftwareEntidad.class)
+    @JoinColumn(name = "idSoftware", nullable = false)
+    private SoftwareEntidad software;
+    
+    public ComputadoraSoftwareEntidad() {
     }
 
     
@@ -72,10 +54,10 @@ public class ReservaEntidad implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ReservaEntidad)) {
+        if (!(object instanceof ComputadoraSoftwareEntidad)) {
             return false;
         }
-        ReservaEntidad other = (ReservaEntidad) object;
+        ComputadoraSoftwareEntidad other = (ComputadoraSoftwareEntidad) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -84,7 +66,7 @@ public class ReservaEntidad implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.reservaEntidad[ id=" + id + " ]";
+        return "Entidades.computadoraSoftwareEntidad[ id=" + id + " ]";
     }
     
 }

@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,31 +21,68 @@ import javax.persistence.Table;
  * @author filor
  */
 @Entity
-@Table(name="tblCarreras")
-public class carreraEntidad implements Serializable {
+@Table(name="Carrera")
+public class CarreraEntidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name="idCarreras")
+    @Column(name="idCarrera")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     
-    @Column(name="nombreDeCarrera",length=30,nullable=false)
+    @Column(name="nombreCarrera",length=30,nullable=false)
     private String nombreDeCarrera;
     
     @Column(name="tiempoLimite",nullable=false)
     private int tiempoLimite;
     
-    @OneToOne(mappedBy = "carreraAlumno", cascade = {CascadeType.PERSIST})
-    private List<alumnoEntidad> carreraAlumno;
+    @OneToMany(mappedBy = "carreraEntidad", cascade = {CascadeType.PERSIST})
+    private List<AlumnoEntidad> carreraAlumno;
     
     /**
      * 
      */
-    public carreraEntidad() {
+    public CarreraEntidad() {
     }
 
+    public CarreraEntidad(String nombreDeCarrera, int tiempoLimite) {
+        this.nombreDeCarrera = nombreDeCarrera;
+        this.tiempoLimite = tiempoLimite;
+    }
+
+    
+    public CarreraEntidad(String nombreDeCarrera, int tiempoLimite, List<AlumnoEntidad> carreraAlumno) {
+        this.nombreDeCarrera = nombreDeCarrera;
+        this.tiempoLimite = tiempoLimite;
+        this.carreraAlumno = carreraAlumno;
+    }
+
+    public String getNombreDeCarrera() {
+        return nombreDeCarrera;
+    }
+
+    public void setNombreDeCarrera(String nombreDeCarrera) {
+        this.nombreDeCarrera = nombreDeCarrera;
+    }
+
+    public int getTiempoLimite() {
+        return tiempoLimite;
+    }
+
+    public void setTiempoLimite(int tiempoLimite) {
+        this.tiempoLimite = tiempoLimite;
+    }
+
+    public List<AlumnoEntidad> getCarreraAlumno() {
+        return carreraAlumno;
+    }
+
+    public void setCarreraAlumno(List<AlumnoEntidad> carreraAlumno) {
+        this.carreraAlumno = carreraAlumno;
+    }
+
+    
     
     public Long getId() {
         return id;
@@ -64,10 +102,10 @@ public class carreraEntidad implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof carreraEntidad)) {
+        if (!(object instanceof CarreraEntidad)) {
             return false;
         }
-        carreraEntidad other = (carreraEntidad) object;
+        CarreraEntidad other = (CarreraEntidad) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

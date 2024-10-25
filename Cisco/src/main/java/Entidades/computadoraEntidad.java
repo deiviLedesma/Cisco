@@ -23,8 +23,8 @@ import javax.persistence.Table;
  * @author filor
  */
 @Entity
-@Table(name="tblComputadoras")
-public class computadoraEntidad implements Serializable {
+@Table(name="Computadora")
+public class ComputadoraEntidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -35,27 +35,30 @@ public class computadoraEntidad implements Serializable {
     @Column(name="numeroMaquina",nullable=false)
     private int numeroMaquina;
     
-    @Column(name="nombreAlumno",length=20,nullable=false)
+    @Column(name="nombreAlumno",length=100,nullable=true)
     private String nombreAlumno;
     
-    @Column(name="IP",length=20,nullable=false)
+    @Column(name="estatus",length=100,nullable=false)
+    private String estatus;
+    
+    @Column(name="ip",length=20,nullable=false)
     private String IP;
     
-    @OneToOne(mappedBy = "programa")
-    private programasDeComputadoraEntidad programa;
-    
-    @ManyToOne(targetEntity = centroDeComputoEntidad.class)
+    @ManyToOne(targetEntity = CentroDeComputoEntidad.class)
     @JoinColumn(name = "idCentroDeComputo", nullable = false)
-    private centroDeComputoEntidad centroComputadora;
+    private CentroDeComputoEntidad centroComputadora;
     
     @OneToMany(mappedBy = "reservaCompu", cascade = {CascadeType.PERSIST})
-    private List<reservaEntidad> reservaCompu;
+    private List<ReservaEntidad> reservaCompu;
+    
+    @OneToMany(mappedBy = "computadora", cascade = {CascadeType.PERSIST})
+    private List<ComputadoraSoftwareEntidad> computadora;
     
     
     /**
      * 
      */
-    public computadoraEntidad() {
+    public ComputadoraEntidad() {
     }
 
     
@@ -77,10 +80,10 @@ public class computadoraEntidad implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof computadoraEntidad)) {
+        if (!(object instanceof ComputadoraEntidad)) {
             return false;
         }
-        computadoraEntidad other = (computadoraEntidad) object;
+        ComputadoraEntidad other = (ComputadoraEntidad) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

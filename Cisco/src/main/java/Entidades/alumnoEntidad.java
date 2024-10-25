@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.OneToOne;
@@ -23,8 +24,8 @@ import javax.persistence.OneToOne;
  * @author filor
  */
 @Entity
-@Table(name="tblAlumnos")
-public class alumnoEntidad implements Serializable {
+@Table(name="Alumno")
+public class AlumnoEntidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -33,34 +34,37 @@ public class alumnoEntidad implements Serializable {
     private Long id;
     
     
-    @Column(name="Nombres",length=40,nullable=false)
+    @Column(name="nombreAlumno",length=100,nullable=false)
     private String nombres;
     
-    @Column(name="APaterno",length=20,nullable=false)
+    @Column(name="apellidoPaterno",length=100,nullable=false)
     private String aPaterno;
     
-    @Column(name="AMaterno",length=20,nullable=false)
+    @Column(name="apellidoMaterno",length=100,nullable=false)
     private String aMaterno;
     
-    @Column(name="contrasenha",length=20,nullable=false)
+    @Column(name="contrasena",length=100,nullable=false)
     private String contrasenha;
+    
+    @Column(name="estatus",length=50,nullable=false)
+    private String estatus;
     
     @Column(name="minutosReservados",nullable=false)
     private int minutosReservados;
 
-    @OneToOne (targetEntity = carreraEntidad.class)
-    @JoinColumn(name = "Carrera")
-    private carreraEntidad carreraEntidad;
+    @ManyToOne(targetEntity = CarreraEntidad.class)
+    @JoinColumn(name = "idCarrera", nullable = false)
+    private CarreraEntidad carreraEntidad;
     
     @OneToMany(mappedBy = "bloqueoAlumno", cascade = {CascadeType.PERSIST})
-    private List<bloqueoEntidad> bloqueoAlumno;
+    private List<BloqueoEntidad> bloqueoAlumno;
     
     @OneToMany(mappedBy = "reservaAlumno", cascade = {CascadeType.PERSIST})
-    private List<reservaEntidad> reservaAlumno;
+    private List<ReservaEntidad> reservaAlumno;
     /**
      * 
      */
-    public alumnoEntidad() {
+    public AlumnoEntidad() {
     }
 
     
@@ -82,10 +86,10 @@ public class alumnoEntidad implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof alumnoEntidad)) {
+        if (!(object instanceof AlumnoEntidad)) {
             return false;
         }
-        alumnoEntidad other = (alumnoEntidad) object;
+        AlumnoEntidad other = (AlumnoEntidad) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

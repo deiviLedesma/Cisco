@@ -5,12 +5,15 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,25 +22,24 @@ import javax.persistence.Table;
  * @author filor
  */
 @Entity
-@Table(name="tblProgramasDeComputadura")
-public class programasDeComputadoraEntidad implements Serializable {
+@Table(name="Software")
+public class SoftwareEntidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name="idPrograma")
+    @Column(name="idSoftware")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="nombrePrograma",length=30,nullable=false)
-    private String nombrePrograma;
+    @Column(name="nombreSoftware",length=30,nullable=false)
+    private String nombreSoftware;
     
-    @OneToOne
-    @JoinColumn(name = "idComputadora")
-    private computadoraEntidad programa;
+    @OneToMany(mappedBy = "software", cascade = {CascadeType.PERSIST})
+    private List<ComputadoraSoftwareEntidad> software;
     /**
      * 
      */
-    public programasDeComputadoraEntidad() {
+    public SoftwareEntidad() {
     }
 
     
@@ -59,10 +61,10 @@ public class programasDeComputadoraEntidad implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof programasDeComputadoraEntidad)) {
+        if (!(object instanceof SoftwareEntidad)) {
             return false;
         }
-        programasDeComputadoraEntidad other = (programasDeComputadoraEntidad) object;
+        SoftwareEntidad other = (SoftwareEntidad) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

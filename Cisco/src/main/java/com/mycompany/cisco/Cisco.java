@@ -4,7 +4,13 @@
 
 package com.mycompany.cisco;
 
-import Entidades.unidadAcademicaEntidad;
+import Entidades.CarreraEntidad;
+import Entidades.UnidadAcademicaEntidad;
+import daos.CarreraDAO;
+import daos.ConexionBD;
+import daos.UnidadAcademicaDAO;
+import exceptions.PersistenciaException;
+import interfaces.IConexionBD;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,31 +21,17 @@ import javax.persistence.Persistence;
  */
 public class Cisco {
 
-    public static void main(String[] args) {
-        // Crear una fabrica de administradores de entidades con la configuracion "ConexionJPA"
-        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("ConexionJPA");
+    public static void main(String[] args) throws PersistenciaException {
+        IConexionBD conexion = new ConexionBD();
         
-        // Crear un administrador de entidades a partir de la fabrica
-        EntityManager entityManager = managerFactory.createEntityManager();
+        UnidadAcademicaEntidad uae = new UnidadAcademicaEntidad("asd");
+        CarreraEntidad carrera = new CarreraEntidad("isw",7);
         
-        // Iniciar una nueva transaccion
-        entityManager.getTransaction().begin();
+        CarreraDAO carreraD = new CarreraDAO(conexion);
+        UnidadAcademicaDAO unidadDAO = new UnidadAcademicaDAO(conexion);
         
-        // Crear una nueva instancia de Entidad con los datos proporcionado
-        unidadAcademicaEntidad ua = new unidadAcademicaEntidad();
-        ua.setNombreUnidad("nomrbe");
-        // Peristir (guardar) la entidad en la base de datos
-        entityManager.persist(ua);
+        carreraD.agregarCarrera(carrera);
+        unidadDAO.agregarCarrera(uae);
         
-        
-        // Confirmar la transaccion para que los cambios se apliquen
-        entityManager.getTransaction().commit();
-        
-        // Mostrar mensaje de exito
-        System.out.println("Operacio realizada correctamente");
-        
-        // Cerrar el administrador de entidades y la fabrica
-        entityManager.close();
-        managerFactory.close();
     }
 }

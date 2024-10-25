@@ -24,20 +24,20 @@ import javax.persistence.Table;
  * @author filor
  */
 @Entity
-@Table(name="tblCentrosDeComputo")
-public class centroDeComputoEntidad implements Serializable {
+@Table(name="CentroComputo")
+public class CentroDeComputoEntidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name="idCentroDeComputo")
+    @Column(name="idCentro")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(name="nombreDeCentro",length=30,nullable=false)
+    @Column(name="nombreCentro",length=100,nullable=false)
     private String nombreDeCentro;
     
-    @Column(name="nombreDeUnidad",length=20,nullable=false)
-    private String contraseñaMaestra;
+    @Column(name="contrasenaMaestra",length=100,nullable=false)
+    private String contrasenaMaestra;
     
     @Column(name = "horaApertura", nullable = false)
     private Time horaApertura;
@@ -45,17 +45,17 @@ public class centroDeComputoEntidad implements Serializable {
     @Column(name = "horaCierre", nullable = false)
     private Time horaCierre;
     
-    @ManyToOne(targetEntity = unidadAcademicaEntidad.class)
+    @ManyToOne(targetEntity = UnidadAcademicaEntidad.class)
     @JoinColumn(name = "idUnidadAcademica", nullable = false)
-    private unidadAcademicaEntidad centroUnidad;
+    private UnidadAcademicaEntidad centroUnidad;
     
     @OneToMany(mappedBy = "centroComputadora", cascade = {CascadeType.PERSIST})
-    private List<computadoraEntidad> centroCompuadora;
+    private List<ComputadoraEntidad> centroCompuadora;
 
     /**
      * 
      */
-    public centroDeComputoEntidad() {
+    public CentroDeComputoEntidad() {
     }
 
     
@@ -77,10 +77,10 @@ public class centroDeComputoEntidad implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof centroDeComputoEntidad)) {
+        if (!(object instanceof CentroDeComputoEntidad)) {
             return false;
         }
-        centroDeComputoEntidad other = (centroDeComputoEntidad) object;
+        CentroDeComputoEntidad other = (CentroDeComputoEntidad) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

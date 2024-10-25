@@ -2,14 +2,15 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
   <persistence-unit name="ConexionJPA" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>Entidades.alumnoEntidad</class>
-    <class>Entidades.bloqueoEntidad</class>
-    <class>Entidades.carreraEntidad</class>
-    <class>Entidades.centroDeComputoEntidad</class>
-    <class>Entidades.computadoraEntidad</class>
-    <class>Entidades.unidadAcademicaEntidad</class>
-    <class>Entidades.reservaEntidad</class>
-    <class>Entidades.programasDeComputadoraEntidad</class>
+    <class>Entidades.AlumnoEntidad</class>
+    <class>Entidades.BloqueoEntidad</class>
+    <class>Entidades.CarreraEntidad</class>
+    <class>Entidades.CentroDeComputoEntidad</class>
+    <class>Entidades.ComputadoraEntidad</class>
+    <class>Entidades.ComputadoraSoftwareEntidad</class>
+    <class>Entidades.SoftwareEntidad</class>
+    <class>Entidades.ReservaEntidad</class>
+    <class>Entidades.UnidadAcademicaEntidad</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cisco?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
