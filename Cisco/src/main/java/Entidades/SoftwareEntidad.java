@@ -34,7 +34,7 @@ public class SoftwareEntidad implements Serializable {
     @Column(name="nombreSoftware",length=30,nullable=false)
     private String nombreSoftware;
     
-    @OneToMany(mappedBy = "software", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "software")
     private List<ComputadoraSoftwareEntidad> software;
     /**
      * 

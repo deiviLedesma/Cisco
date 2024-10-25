@@ -46,10 +46,10 @@ public class CentroDeComputoEntidad implements Serializable {
     private Time horaCierre;
     
     @ManyToOne(targetEntity = UnidadAcademicaEntidad.class)
-    @JoinColumn(name = "idUnidadAcademica", nullable = false)
+    @JoinColumn(name = "idUnidad", nullable = false)
     private UnidadAcademicaEntidad centroUnidad;
     
-    @OneToMany(mappedBy = "centroComputadora", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "centroComputadora")
     private List<ComputadoraEntidad> centroCompuadora;
 
     /**
@@ -58,6 +58,81 @@ public class CentroDeComputoEntidad implements Serializable {
     public CentroDeComputoEntidad() {
     }
 
+    public CentroDeComputoEntidad(String nombreDeCentro, String contrasenaMaestra, Time horaApertura, Time horaCierre, UnidadAcademicaEntidad centroUnidad, List<ComputadoraEntidad> centroCompuadora) {
+        this.nombreDeCentro = nombreDeCentro;
+        this.contrasenaMaestra = contrasenaMaestra;
+        this.horaApertura = horaApertura;
+        this.horaCierre = horaCierre;
+        this.centroUnidad = centroUnidad;
+        this.centroCompuadora = centroCompuadora;
+    }
+
+    public CentroDeComputoEntidad(String nombreDeCentro, String contrasenaMaestra, Time horaApertura, Time horaCierre, UnidadAcademicaEntidad centroUnidad) {
+        this.nombreDeCentro = nombreDeCentro;
+        this.contrasenaMaestra = contrasenaMaestra;
+        this.horaApertura = horaApertura;
+        this.horaCierre = horaCierre;
+        this.centroUnidad = centroUnidad;
+    }
+
+    public CentroDeComputoEntidad(String nombreDeCentro, String contrasenaMaestra, Time horaApertura, Time horaCierre) {
+        this.nombreDeCentro = nombreDeCentro;
+        this.contrasenaMaestra = contrasenaMaestra;
+        this.horaApertura = horaApertura;
+        this.horaCierre = horaCierre;
+    }
+    
+    
+
+    public String getNombreDeCentro() {
+        return nombreDeCentro;
+    }
+
+    public void setNombreDeCentro(String nombreDeCentro) {
+        this.nombreDeCentro = nombreDeCentro;
+    }
+
+    public String getContrasenaMaestra() {
+        return contrasenaMaestra;
+    }
+
+    public void setContrasenaMaestra(String contrasenaMaestra) {
+        this.contrasenaMaestra = contrasenaMaestra;
+    }
+
+    public Time getHoraApertura() {
+        return horaApertura;
+    }
+
+    public void setHoraApertura(Time horaApertura) {
+        this.horaApertura = horaApertura;
+    }
+
+    public Time getHoraCierre() {
+        return horaCierre;
+    }
+
+    public void setHoraCierre(Time horaCierre) {
+        this.horaCierre = horaCierre;
+    }
+
+    public UnidadAcademicaEntidad getCentroUnidad() {
+        return centroUnidad;
+    }
+
+    public void setCentroUnidad(UnidadAcademicaEntidad centroUnidad) {
+        this.centroUnidad = centroUnidad;
+    }
+
+    public List<ComputadoraEntidad> getCentroCompuadora() {
+        return centroCompuadora;
+    }
+
+    public void setCentroCompuadora(List<ComputadoraEntidad> centroCompuadora) {
+        this.centroCompuadora = centroCompuadora;
+    }
+
+    
     
     public Long getId() {
         return id;

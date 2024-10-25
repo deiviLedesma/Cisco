@@ -48,10 +48,10 @@ public class ComputadoraEntidad implements Serializable {
     @JoinColumn(name = "idCentroDeComputo", nullable = false)
     private CentroDeComputoEntidad centroComputadora;
     
-    @OneToMany(mappedBy = "reservaCompu", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "reservaCompu")
     private List<ReservaEntidad> reservaCompu;
     
-    @OneToMany(mappedBy = "computadora", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "computadora")
     private List<ComputadoraSoftwareEntidad> computadora;
     
     

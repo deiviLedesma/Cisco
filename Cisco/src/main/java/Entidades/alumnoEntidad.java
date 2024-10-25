@@ -56,10 +56,10 @@ public class AlumnoEntidad implements Serializable {
     @JoinColumn(name = "idCarrera", nullable = false)
     private CarreraEntidad carreraEntidad;
     
-    @OneToMany(mappedBy = "bloqueoAlumno", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "bloqueoAlumno")
     private List<BloqueoEntidad> bloqueoAlumno;
     
-    @OneToMany(mappedBy = "reservaAlumno", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "reservaAlumno")
     private List<ReservaEntidad> reservaAlumno;
     /**
      * 
