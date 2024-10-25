@@ -81,6 +81,14 @@ public class CentroDeComputoEntidad implements Serializable {
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
     }
+
+    public CentroDeComputoEntidad(Long id, String nombreDeCentro, String contrasenaMaestra, Time horaApertura, Time horaCierre) {
+        this.id = id;
+        this.nombreDeCentro = nombreDeCentro;
+        this.contrasenaMaestra = contrasenaMaestra;
+        this.horaApertura = horaApertura;
+        this.horaCierre = horaCierre;
+    }
     
     
 

@@ -31,13 +31,13 @@ public class Cisco {
         UnidadAcademicaEntidad unidad = new UnidadAcademicaEntidad("unidad");
         UnidadAcademicaDAO unidadDAO = new UnidadAcademicaDAO(conexion);
         CentroDeComputoDAO centroDAO = new CentroDeComputoDAO(conexion);
-        CentroDeComputoEntidad centro1 = new CentroDeComputoEntidad("centro1", "pepes", Time.valueOf("5:03:00"), Time.valueOf("8:00:00"));
+        CentroDeComputoEntidad centro1 = new CentroDeComputoEntidad(151L,"centroEditado2", "Felipez", Time.valueOf("5:03:00"), Time.valueOf("8:00:00"));
         List<CentroDeComputoEntidad> centros = new ArrayList<>();
         centros.add(centro1);
         unidadDAO.consultarUnidadPorID(1L).setCentroUnidad(centros);
         
         centro1.setCentroUnidad(unidadDAO.consultarUnidadPorID(1L));
         
-        centroDAO.agregarCentro(centro1);
+        centroDAO.editarCentro(centro1);
     }
 }
