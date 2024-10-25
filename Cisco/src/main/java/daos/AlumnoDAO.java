@@ -4,10 +4,11 @@
  */
 package daos;
 
-import Entidades.CarreraEntidad;
+import Entidades.AlumnoEntidad;
 import Entidades.CentroDeComputoEntidad;
+import Entidades.UnidadAcademicaEntidad;
 import exceptions.PersistenciaException;
-import interfaces.ICentroDeComputoDAO;
+import interfaces.IAlumnoDAO;
 import interfaces.IConexionBD;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -16,31 +17,31 @@ import javax.persistence.EntityTransaction;
  *
  * @author filor
  */
-public class CentroDeComputoDAO implements ICentroDeComputoDAO{
+public class AlumnoDAO implements IAlumnoDAO{
     private IConexionBD conexionBD;
 
-    public CentroDeComputoDAO(IConexionBD conexionBD) {
+    public AlumnoDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
     /**
      * 
-     * @param centro
+     * @param alumno
      * @throws PersistenciaException 
      */
     @Override
-    public void agregarCentro(CentroDeComputoEntidad centro) throws PersistenciaException {
+    public void agregarAlumno(AlumnoEntidad alumno) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         try {
             entityTransaction.begin();
-            entityManager.persist(centro);
+            entityManager.persist(alumno);
             entityTransaction.commit();
         } catch (Exception e) {
             if (entityTransaction.isActive()) {
                 entityTransaction.rollback();
             }
-            throw new PersistenciaException("Error al crear centro de computo", e);
+            throw new PersistenciaException("Error al crear al alumno", e);
         } finally {
             entityManager.close();
         }
@@ -51,43 +52,45 @@ public class CentroDeComputoDAO implements ICentroDeComputoDAO{
      * @throws PersistenciaException 
      */
     @Override
-    public void eliminarCentro(Long id) throws PersistenciaException {
+    public void eliminarAlumno(Long id) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         try {
             entityTransaction.begin();
-            CentroDeComputoEntidad centro = entityManager.find(CentroDeComputoEntidad.class, id);
-            if (centro != null) {
-                entityManager.remove(centro);
+            AlumnoEntidad entidad = entityManager.find(AlumnoEntidad.class, id);
+            if (entidad != null) {
+                entityManager.remove(entidad);
             }
             entityTransaction.commit();
         } catch (Exception e) {
             if (entityTransaction.isActive()) {
                 entityTransaction.rollback();
             }
-            throw new PersistenciaException("Error al eliminar el centro de computo", e);
+            throw new PersistenciaException("Error al eliminar al alumno", e);
         } finally {
             entityManager.close();
         }
     }
-    
+    /**
+     * 
+     * @param id
+     * @return
+     * @throws PersistenciaException 
+     */
     @Override
-    public void editarCentro(CentroDeComputoEntidad entidad) throws PersistenciaException {
+    public AlumnoEntidad consultarAlumnoPorID(Long id) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
-        EntityTransaction entityTransaction = entityManager.getTransaction();
+        AlumnoEntidad entidad = null;
 
         try {
-            entityTransaction.begin();
-            entityManager.merge(entidad);
-            entityTransaction.commit();
+            entidad = entityManager.find(AlumnoEntidad.class, id);
         } catch (Exception e) {
-            if (entityTransaction.isActive()) {
-                entityTransaction.rollback();
-            }
-            throw new PersistenciaException("Error al actualizar beneficiario", e);
+            throw new PersistenciaException("Error al leer el alumno", e);
         } finally {
             entityManager.close();
         }
+
+        return entidad;
     }
 }

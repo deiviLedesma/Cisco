@@ -4,10 +4,12 @@
  */
 package daos;
 
+import Entidades.AlumnoEntidad;
+import Entidades.ComputadoraSoftwareEntidad;
 import Entidades.UnidadAcademicaEntidad;
 import exceptions.PersistenciaException;
+import interfaces.IComputadoraSoftwareDAO;
 import interfaces.IConexionBD;
-import interfaces.IUnidadAcademicaDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -15,55 +17,36 @@ import javax.persistence.EntityTransaction;
  *
  * @author filor
  */
-public class UnidadAcademicaDAO implements IUnidadAcademicaDAO{
+public class ComputadoraSoftwareDAO implements IComputadoraSoftwareDAO{
     private IConexionBD conexionBD;
 
-    public UnidadAcademicaDAO(IConexionBD conexionBD) {
+    public ComputadoraSoftwareDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
     
     /**
      * 
-     * @param unidad
+     * @param entidad
      * @throws PersistenciaException 
      */
     @Override
-    public void agregarUnidad(UnidadAcademicaEntidad unidad) throws PersistenciaException {
+    public void agregarComputadoraSoftware(ComputadoraSoftwareEntidad entidad) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         try {
             entityTransaction.begin();
-            entityManager.persist(unidad);
+            entityManager.persist(entidad);
             entityTransaction.commit();
         } catch (Exception e) {
             if (entityTransaction.isActive()) {
                 entityTransaction.rollback();
             }
-            throw new PersistenciaException("Error al crear la unidad", e);
+            throw new PersistenciaException("Error al agregar la pc/software", e);
         } finally {
             entityManager.close();
         }
     }
-    /**
-     * 
-     * @param id
-     * @return
-     * @throws PersistenciaException 
-     */
-    @Override
-    public UnidadAcademicaEntidad consultarUnidadPorID(Long id) throws PersistenciaException {
-        EntityManager entityManager = conexionBD.obtenerEntityManager();
-        UnidadAcademicaEntidad unidad = null;
-
-        try {
-            unidad = entityManager.find(UnidadAcademicaEntidad.class, id);
-        } catch (Exception e) {
-            throw new PersistenciaException("Error al leer abono", e);
-        } finally {
-            entityManager.close();
-        }
-
-        return unidad;
-    }
+    
+    
 }

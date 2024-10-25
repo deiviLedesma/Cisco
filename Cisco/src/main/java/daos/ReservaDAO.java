@@ -5,10 +5,11 @@
 package daos;
 
 import Entidades.AlumnoEntidad;
-import Entidades.CarreraEntidad;
+import Entidades.ReservaEntidad;
+import Entidades.SoftwareEntidad;
 import exceptions.PersistenciaException;
-import interfaces.ICarreraDAO;
 import interfaces.IConexionBD;
+import interfaces.IReservaDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -16,78 +17,57 @@ import javax.persistence.EntityTransaction;
  *
  * @author filor
  */
-public class CarreraDAO implements ICarreraDAO {
+public class ReservaDAO implements IReservaDAO {
     private IConexionBD conexionBD;
 
-    public CarreraDAO(IConexionBD conexionBD) {
+    public ReservaDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
-    }
-
-    public CarreraDAO() {
     }
     /**
      * 
-     * @param carrera
+     * @param entidad
      * @throws PersistenciaException 
      */
     @Override
-     public void agregarCarrera(CarreraEntidad carrera) throws PersistenciaException {
+    public void agregarReserva(ReservaEntidad entidad) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         try {
             entityTransaction.begin();
-            entityManager.persist(carrera);
+            entityManager.persist(entidad);
             entityTransaction.commit();
         } catch (Exception e) {
             if (entityTransaction.isActive()) {
                 entityTransaction.rollback();
             }
-            throw new PersistenciaException("Error al crear abono", e);
+            throw new PersistenciaException("Error al crear la reserva", e);
         } finally {
             entityManager.close();
         }
     }
-     /**
-      * 
-      * @param id
-      * @return
-      * @throws PersistenciaException 
-      */
+    /**
+     * 
+     * @param id
+     * @throws PersistenciaException 
+     */
     @Override
-     public CarreraEntidad consultarCarreraPorID(Long id) throws PersistenciaException {
-        EntityManager entityManager = conexionBD.obtenerEntityManager();
-        CarreraEntidad entidad = null;
-
-        try {
-            entidad = entityManager.find(CarreraEntidad.class, id);
-        } catch (Exception e) {
-            throw new PersistenciaException("Error al leer la carrera", e);
-        } finally {
-            entityManager.close();
-        }
-
-        return entidad;
-    }
-     /**
-      * 
-      * @param entidad
-      * @throws PersistenciaException 
-      */
-    @Override
-     public void editarCarrera(CarreraEntidad entidad) throws PersistenciaException {
+    public void eliminarReserva(Long id) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         try {
             entityTransaction.begin();
-            entityManager.merge(entidad);
+            ReservaEntidad entidad = entityManager.find(ReservaEntidad.class, id);
+            if (entidad != null) {
+                entityManager.remove(entidad);
+            }
             entityTransaction.commit();
         } catch (Exception e) {
             if (entityTransaction.isActive()) {
                 entityTransaction.rollback();
             }
-            throw new PersistenciaException("Error al actualizar beneficiario", e);
+            throw new PersistenciaException("Error al eliminar la reserva", e);
         } finally {
             entityManager.close();
         }
