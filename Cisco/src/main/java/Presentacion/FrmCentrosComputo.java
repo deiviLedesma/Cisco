@@ -29,24 +29,15 @@ public class FrmCentrosComputo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtNombre = new javax.swing.JTextField();
-        tt = new javax.swing.JCheckBox();
-        ttt = new javax.swing.JCheckBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
         btnAnterior = new javax.swing.JButton();
-        btnAgregar = new javax.swing.JButton();
-        check1 = new javax.swing.JCheckBox();
-        check2 = new javax.swing.JCheckBox();
-        check3 = new javax.swing.JCheckBox();
-        check4 = new javax.swing.JCheckBox();
-        check8 = new javax.swing.JCheckBox();
-        check7 = new javax.swing.JCheckBox();
-        check6 = new javax.swing.JCheckBox();
-        check5 = new javax.swing.JCheckBox();
+        btnComp1 = new javax.swing.JButton();
+        btnComp5 = new javax.swing.JButton();
+        btnComp2 = new javax.swing.JButton();
+        btnComp6 = new javax.swing.JButton();
+        btnComp3 = new javax.swing.JButton();
+        btnComp7 = new javax.swing.JButton();
+        btnComp4 = new javax.swing.JButton();
+        btnComp8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,68 +49,75 @@ public class FrmCentrosComputo extends javax.swing.JFrame {
         txtNombre.setText("Nombre del centro de computo");
         txtNombre.setBorder(null);
 
-        tt.setText("1");
-        tt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imac.png"))); // NOI18N
-        tt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ttActionPerformed(evt);
-            }
-        });
-
-        ttt.setText("2");
-        ttt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imac.png"))); // NOI18N
-        ttt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tttActionPerformed(evt);
-            }
-        });
-
-        jCheckBox1.setText("3");
-        jCheckBox1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imac.png"))); // NOI18N
-
-        jCheckBox2.setText("4");
-        jCheckBox2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imac.png"))); // NOI18N
-
-        jCheckBox3.setText("5");
-        jCheckBox3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imac.png"))); // NOI18N
-
-        jCheckBox4.setText("6");
-        jCheckBox4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imac.png"))); // NOI18N
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox5.setText("7");
-        jCheckBox5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imac.png"))); // NOI18N
-
-        jCheckBox6.setText("8");
-        jCheckBox6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imac.png"))); // NOI18N
-
         btnAnterior.setBackground(new java.awt.Color(0, 153, 255));
         btnAnterior.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnAnterior.setForeground(new java.awt.Color(255, 255, 255));
         btnAnterior.setText("Anterior");
 
-        btnAgregar.setBackground(new java.awt.Color(0, 153, 255));
-        btnAgregar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregar.setText("Agregar");
+        btnComp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/imac.png"))); // NOI18N
+        btnComp1.setText("1");
+        btnComp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComp1ActionPerformed(evt);
+            }
+        });
 
-        check2.setText("jCheckBox8");
+        btnComp5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/imac.png"))); // NOI18N
+        btnComp5.setText("5");
+        btnComp5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComp5ActionPerformed(evt);
+            }
+        });
 
-        check3.setText("jCheckBox9");
+        btnComp2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/imac.png"))); // NOI18N
+        btnComp2.setText("2");
+        btnComp2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComp2ActionPerformed(evt);
+            }
+        });
 
-        check4.setText("jCheckBox10");
+        btnComp6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/imac.png"))); // NOI18N
+        btnComp6.setText("6");
+        btnComp6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComp6ActionPerformed(evt);
+            }
+        });
 
-        check8.setText("jCheckBox11");
+        btnComp3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/imac.png"))); // NOI18N
+        btnComp3.setText("3");
+        btnComp3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComp3ActionPerformed(evt);
+            }
+        });
 
-        check7.setText("jCheckBox12");
+        btnComp7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/imac.png"))); // NOI18N
+        btnComp7.setText("7");
+        btnComp7.setToolTipText("");
+        btnComp7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComp7ActionPerformed(evt);
+            }
+        });
 
-        check6.setText("jCheckBox13");
+        btnComp4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/imac.png"))); // NOI18N
+        btnComp4.setText("4");
+        btnComp4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComp4ActionPerformed(evt);
+            }
+        });
 
-        check5.setText("jCheckBox14");
+        btnComp8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/imac.png"))); // NOI18N
+        btnComp8.setText("8");
+        btnComp8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComp8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -128,90 +126,49 @@ public class FrmCentrosComputo extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(check1)
-                        .addGap(95, 95, 95)
-                        .addComponent(check2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91)
-                        .addComponent(check3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(check4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(btnAnterior)
-                        .addGap(71, 71, 71)
-                        .addComponent(btnAgregar)))
-                .addGap(76, 76, 76))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(check5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(check6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)
-                        .addComponent(check7, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addComponent(check8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tt, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ttt, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAnterior)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnComp1, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                    .addComponent(btnComp5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnComp6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnComp2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnComp3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnComp7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnComp4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnComp8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(104, 104, 104))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tt)
-                    .addComponent(ttt)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(check1)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(check2)
-                        .addComponent(check3)
-                        .addComponent(check4)))
-                .addGap(42, 42, 42)
+                    .addComponent(btnComp1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComp2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComp3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComp4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(82, 82, 82)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(check8)
-                    .addComponent(check7)
-                    .addComponent(check6)
-                    .addComponent(check5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAnterior)
-                    .addComponent(btnAgregar))
+                    .addComponent(btnComp5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComp6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComp7, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComp8, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(btnAnterior)
                 .addGap(14, 14, 14))
         );
 
@@ -222,14 +179,14 @@ public class FrmCentrosComputo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,17 +203,53 @@ public class FrmCentrosComputo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ttActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ttActionPerformed
+    private void btnComp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComp1ActionPerformed
+        FrmAgregarEquipo fae = new FrmAgregarEquipo();
+        fae.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnComp1ActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    private void btnComp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComp2ActionPerformed
+        FrmAgregarEquipo fae = new FrmAgregarEquipo();
+        fae.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnComp2ActionPerformed
 
-    private void tttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tttActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tttActionPerformed
+    private void btnComp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComp3ActionPerformed
+        FrmAgregarEquipo fae = new FrmAgregarEquipo();
+        fae.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnComp3ActionPerformed
+
+    private void btnComp4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComp4ActionPerformed
+        FrmAgregarEquipo fae = new FrmAgregarEquipo();
+        fae.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnComp4ActionPerformed
+
+    private void btnComp5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComp5ActionPerformed
+        FrmAgregarEquipo fae = new FrmAgregarEquipo();
+        fae.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnComp5ActionPerformed
+
+    private void btnComp6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComp6ActionPerformed
+        FrmAgregarEquipo fae = new FrmAgregarEquipo();
+        fae.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnComp6ActionPerformed
+
+    private void btnComp7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComp7ActionPerformed
+        FrmAgregarEquipo fae = new FrmAgregarEquipo();
+        fae.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnComp7ActionPerformed
+
+    private void btnComp8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComp8ActionPerformed
+        FrmAgregarEquipo fae = new FrmAgregarEquipo();
+        fae.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnComp8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,26 +287,17 @@ public class FrmCentrosComputo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAnterior;
-    private javax.swing.JCheckBox check1;
-    private javax.swing.JCheckBox check2;
-    private javax.swing.JCheckBox check3;
-    private javax.swing.JCheckBox check4;
-    private javax.swing.JCheckBox check5;
-    private javax.swing.JCheckBox check6;
-    private javax.swing.JCheckBox check7;
-    private javax.swing.JCheckBox check8;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JButton btnComp1;
+    private javax.swing.JButton btnComp2;
+    private javax.swing.JButton btnComp3;
+    private javax.swing.JButton btnComp4;
+    private javax.swing.JButton btnComp5;
+    private javax.swing.JButton btnComp6;
+    private javax.swing.JButton btnComp7;
+    private javax.swing.JButton btnComp8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JCheckBox tt;
-    private javax.swing.JCheckBox ttt;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
