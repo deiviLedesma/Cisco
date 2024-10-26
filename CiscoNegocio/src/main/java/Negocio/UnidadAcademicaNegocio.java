@@ -4,18 +4,44 @@
  */
 package Negocio;
 
+import java.util.List;
+
 /**
  *
  * @author Edgar Artuto Acevedo Acosta
  */
 public class UnidadAcademicaNegocio {
+    public Long idUnidad;
     public String NombreUnidad;
+    private List<Long> idsCentros;
+
+    public UnidadAcademicaNegocio() {
+    }
 
     public UnidadAcademicaNegocio(String NombreUnidad) {
         this.NombreUnidad = NombreUnidad;
     }
 
-    
+    public UnidadAcademicaNegocio(Long idUnidad, String NombreUnidad) {
+        this.idUnidad = idUnidad;
+        this.NombreUnidad = NombreUnidad;
+    }
+
+    public List<Long> getIdsCentros() {
+        return idsCentros;
+    }
+
+    public void setIdsCentros(List<Long> idsCentros) {
+        this.idsCentros = idsCentros;
+    }
+
+    public Long getIdUnidad() {
+        return idUnidad;
+    }
+
+    public void setIdUnidad(Long idUnidad) {
+        this.idUnidad = idUnidad;
+    }
 
     public String getNombreUnidad() {
         return NombreUnidad;

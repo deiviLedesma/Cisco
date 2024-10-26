@@ -1,7 +1,13 @@
 Negocio\UnidadAcademicaNegocio.class
+Negocio\ComputadoraSoftwareNegocio.class
+convertidores\CarreraConvertidor.class
+Negocio\AlumnoNegocio.class
+Negocio\BloqueoNegocio.class
+pruebas\Pruebas.class
 Negocio\CentroComputoNegocio.class
 Negocio\ComputadoraNegocio.class
 Negocio\ReservaNegocio.class
-Negocio\AlumnoNegocio.class
-Negocio\BloqueoNegocio.class
+exceptions\NegocioException.class
 Negocio\CarreraNegocio.class
+service\CarreraService.class
+Negocio\SoftwareNegocio.class

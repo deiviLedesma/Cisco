@@ -61,6 +61,80 @@ public class ComputadoraEntidad implements Serializable {
     public ComputadoraEntidad() {
     }
 
+    public ComputadoraEntidad(Long id, int numeroMaquina, String nombreAlumno, String estatus, String IP, CentroDeComputoEntidad centroComputadora, List<ReservaEntidad> reservaCompu, List<ComputadoraSoftwareEntidad> computadora) {
+        this.id = id;
+        this.numeroMaquina = numeroMaquina;
+        this.nombreAlumno = nombreAlumno;
+        this.estatus = estatus;
+        this.IP = IP;
+        this.centroComputadora = centroComputadora;
+        this.reservaCompu = reservaCompu;
+        this.computadora = computadora;
+    }
+
+    public ComputadoraEntidad(int numeroMaquina, String nombreAlumno, String estatus, String IP) {
+        this.numeroMaquina = numeroMaquina;
+        this.nombreAlumno = nombreAlumno;
+        this.estatus = estatus;
+        this.IP = IP;
+    }
+
+    public int getNumeroMaquina() {
+        return numeroMaquina;
+    }
+
+    public void setNumeroMaquina(int numeroMaquina) {
+        this.numeroMaquina = numeroMaquina;
+    }
+
+    public String getNombreAlumno() {
+        return nombreAlumno;
+    }
+
+    public void setNombreAlumno(String nombreAlumno) {
+        this.nombreAlumno = nombreAlumno;
+    }
+
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+
+    public String getIP() {
+        return IP;
+    }
+
+    public void setIP(String IP) {
+        this.IP = IP;
+    }
+
+    public CentroDeComputoEntidad getCentroComputadora() {
+        return centroComputadora;
+    }
+
+    public void setCentroComputadora(CentroDeComputoEntidad centroComputadora) {
+        this.centroComputadora = centroComputadora;
+    }
+
+    public List<ReservaEntidad> getReservaCompu() {
+        return reservaCompu;
+    }
+
+    public void setReservaCompu(List<ReservaEntidad> reservaCompu) {
+        this.reservaCompu = reservaCompu;
+    }
+
+    public List<ComputadoraSoftwareEntidad> getComputadora() {
+        return computadora;
+    }
+
+    public void setComputadora(List<ComputadoraSoftwareEntidad> computadora) {
+        this.computadora = computadora;
+    }
+
     
     public Long getId() {
         return id;

@@ -40,6 +40,12 @@ public class UnidadAcademicaEntidad implements Serializable {
     public UnidadAcademicaEntidad() {
     }
 
+    public UnidadAcademicaEntidad(Long id, String nombreUnidad, List<CentroDeComputoEntidad> centroUnidad) {
+        this.id = id;
+        this.nombreUnidad = nombreUnidad;
+        this.centroUnidad = centroUnidad;
+    }
+
     public UnidadAcademicaEntidad(String nombreUnidad) {
         this.nombreUnidad = nombreUnidad;
     }

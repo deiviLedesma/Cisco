@@ -27,6 +27,7 @@ public class CarreraDAO implements ICarreraDAO {
     }
 
     public CarreraDAO() {
+        this.conexionBD = new ConexionBD();
     }
     /**
      * 
@@ -91,6 +92,28 @@ public class CarreraDAO implements ICarreraDAO {
                 entityTransaction.rollback();
             }
             throw new PersistenciaException("Error al actualizar beneficiario", e);
+        } finally {
+            entityManager.close();
+        }
+    }
+     
+    @Override
+     public void eliminarCarrera(Long id) throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+
+        try {
+            entityTransaction.begin();
+            CarreraEntidad entidad = entityManager.find(CarreraEntidad.class, id);
+            if (entidad != null) {
+                entityManager.remove(entidad);
+            }
+            entityTransaction.commit();
+        } catch (Exception e) {
+            if (entityTransaction.isActive()) {
+                entityTransaction.rollback();
+            }
+            throw new PersistenciaException("Error al eliminar la carrera", e);
         } finally {
             entityManager.close();
         }

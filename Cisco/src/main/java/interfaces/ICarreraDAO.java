@@ -22,4 +22,6 @@ public interface ICarreraDAO {
     public List<CarreraEntidad> listaCarreras() throws PersistenciaException;
     
     public List<CarreraEntidad> listaCarreras(int pagina, int limite) throws PersistenciaException;
+    
+    public void eliminarCarrera(Long id) throws PersistenciaException;
 }
