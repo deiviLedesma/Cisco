@@ -9,6 +9,7 @@ import Entidades.CentroDeComputoEntidad;
 import exceptions.PersistenciaException;
 import interfaces.ICentroDeComputoDAO;
 import interfaces.IConexionBD;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -71,7 +72,11 @@ public class CentroDeComputoDAO implements ICentroDeComputoDAO{
             entityManager.close();
         }
     }
-    
+    /**
+     * 
+     * @param entidad
+     * @throws PersistenciaException 
+     */
     @Override
     public void editarCentro(CentroDeComputoEntidad entidad) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
@@ -89,5 +94,51 @@ public class CentroDeComputoDAO implements ICentroDeComputoDAO{
         } finally {
             entityManager.close();
         }
+    }
+    
+    /**
+     * 
+     * @param pagina
+     * @param limite
+     * @return
+     * @throws PersistenciaException 
+     */
+    @Override
+    public List<CentroDeComputoEntidad> listaCentrosPaginado(int pagina, int limite) throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        List<CentroDeComputoEntidad> entidad = null;
+
+        try {
+            entidad = entityManager.createQuery("SELECT b FROM CentroDeComputoEntidad b", CentroDeComputoEntidad.class)
+                    .setFirstResult((pagina - 1) * limite)
+                    .setMaxResults(limite)
+                    .getResultList();
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer todos los CentroComputo", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
+    }
+    /**
+     * 
+     * @return
+     * @throws PersistenciaException 
+     */
+    @Override
+    public List<CentroDeComputoEntidad> listaCentros() throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        List<CentroDeComputoEntidad> entidad = null;
+
+        try {
+            entidad = entityManager.createQuery("SELECT b FROM CentroDeComputoEntidad b", CentroDeComputoEntidad.class).getResultList();
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer todos los CentroComputo", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
     }
 }

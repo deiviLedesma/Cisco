@@ -4,10 +4,12 @@
  */
 package daos;
 
+import Entidades.SoftwareEntidad;
 import Entidades.UnidadAcademicaEntidad;
 import exceptions.PersistenciaException;
 import interfaces.IConexionBD;
 import interfaces.IUnidadAcademicaDAO;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -65,5 +67,21 @@ public class UnidadAcademicaDAO implements IUnidadAcademicaDAO{
         }
 
         return unidad;
+    }
+    
+    @Override
+    public List<UnidadAcademicaEntidad> listaUnidades() throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        List<UnidadAcademicaEntidad> entidad = null;
+
+        try {
+            entidad = entityManager.createQuery("SELECT b FROM UnidadAcademicaEntidad b", UnidadAcademicaEntidad.class).getResultList();
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer todos los CentroComputo", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
     }
 }

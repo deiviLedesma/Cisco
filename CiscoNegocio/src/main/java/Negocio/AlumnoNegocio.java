@@ -13,14 +13,14 @@ public class AlumnoNegocio {
     public String apellidoPaterno;
     public String apellidoMaterno;
     public String contraseña;
-
+    
     public AlumnoNegocio(String nombreAlumno, String apellidoPaterno, String apellidoMaterno, String contraseña) {
         this.nombreAlumno = nombreAlumno;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.contraseña = contraseña;
     }
-
+    
     public String getNombreAlumno() {
         return nombreAlumno;
     }

@@ -6,9 +6,12 @@ package daos;
 
 import Entidades.AlumnoEntidad;
 import Entidades.CarreraEntidad;
+import Entidades.CentroDeComputoEntidad;
+import Entidades.ComputadoraEntidad;
 import exceptions.PersistenciaException;
 import interfaces.ICarreraDAO;
 import interfaces.IConexionBD;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -91,5 +94,40 @@ public class CarreraDAO implements ICarreraDAO {
         } finally {
             entityManager.close();
         }
+    }
+     
+     @Override
+    public List<CarreraEntidad> listaCarreras() throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        List<CarreraEntidad> entidad = null;
+
+        try {
+            entidad = entityManager.createQuery("SELECT b FROM CarreraEntidad b", CarreraEntidad.class).getResultList();
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer todos los CentroComputo", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
+    }
+    
+    @Override
+    public List<CarreraEntidad> listaCarreras(int pagina, int limite) throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        List<CarreraEntidad> entidad = null;
+
+        try {
+            entidad = entityManager.createQuery("SELECT b FROM CarreraEntidad b", CarreraEntidad.class)
+                    .setFirstResult((pagina - 1) * limite)
+                    .setMaxResults(limite)
+                    .getResultList();
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer todos los CentroComputo", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
     }
 }
