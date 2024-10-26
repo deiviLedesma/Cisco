@@ -21,7 +21,7 @@ public class CarreraConvertidor {
     
     /**
      * 
-     * @param beneficarioDTO
+     * @param dto
      * @return
      * @throws PersistenciaException 
      */

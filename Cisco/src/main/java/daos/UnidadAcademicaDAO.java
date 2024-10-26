@@ -23,6 +23,10 @@ public class UnidadAcademicaDAO implements IUnidadAcademicaDAO{
     public UnidadAcademicaDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
+
+    public UnidadAcademicaDAO() {
+        this.conexionBD = new ConexionBD();
+    }
     
     /**
      * 

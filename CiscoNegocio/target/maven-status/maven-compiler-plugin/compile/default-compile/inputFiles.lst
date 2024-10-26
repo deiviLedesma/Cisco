@@ -2,6 +2,7 @@ C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\Negoc
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\pruebas\Pruebas.java
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\exceptions\NegocioException.java
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\Negocio\BloqueoNegocio.java
+C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\service\UnidadAcademicaService.java
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\Negocio\CarreraNegocio.java
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\Negocio\ReservaNegocio.java
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\Negocio\AlumnoNegocio.java
@@ -11,3 +12,4 @@ C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\Negoc
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\Negocio\SoftwareNegocio.java
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\Negocio\UnidadAcademicaNegocio.java
 C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\convertidores\CarreraConvertidor.java
+C:\Users\filor\OneDrive\Documentos\GitHub\Cisco\CiscoNegocio\src\main\java\convertidores\UnidadAcademicaConvertidor.java

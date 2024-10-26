@@ -86,6 +86,11 @@ public class CarreraService {
         }
     }
     
+    /**
+     * 
+     * @param carrera
+     * @throws NegocioException 
+     */
     private void validarCarrera(CarreraEntidad carrera) throws NegocioException {
 
         if (carrera == null) {

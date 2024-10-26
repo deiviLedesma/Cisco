@@ -23,6 +23,11 @@ public class CentroDeComputoDAO implements ICentroDeComputoDAO{
     public CentroDeComputoDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
+
+    public CentroDeComputoDAO() {
+        this.conexionBD = new ConexionBD();
+    }
+    
     /**
      * 
      * @param centro

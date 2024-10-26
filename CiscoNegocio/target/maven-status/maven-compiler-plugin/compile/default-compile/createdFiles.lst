@@ -4,6 +4,8 @@ convertidores\CarreraConvertidor.class
 Negocio\AlumnoNegocio.class
 Negocio\BloqueoNegocio.class
 pruebas\Pruebas.class
+service\UnidadAcademicaService.class
+convertidores\UnidadAcademicaConvertidor.class
 Negocio\CentroComputoNegocio.class
 Negocio\ComputadoraNegocio.class
 Negocio\ReservaNegocio.class
