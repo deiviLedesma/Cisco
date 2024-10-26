@@ -38,6 +38,8 @@ public class Cisco {
         
         centro1.setCentroUnidad(unidadDAO.consultarUnidadPorID(1L));
         
-        centroDAO.editarCentro(centro1);
+        List<CentroDeComputoEntidad> centros2 = new ArrayList<>();
+        centros = centroDAO.listaCentros();
+        System.out.println(centros.get(0));
     }
 }

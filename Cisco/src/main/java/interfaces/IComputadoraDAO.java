@@ -6,6 +6,7 @@ package interfaces;
 
 import Entidades.ComputadoraEntidad;
 import exceptions.PersistenciaException;
+import java.util.List;
 
 /**
  *
@@ -17,4 +18,6 @@ public interface IComputadoraDAO {
     public void eliminarComputadora(Long id) throws PersistenciaException;
     
     public ComputadoraEntidad consultarPCPorID(Long id) throws PersistenciaException;
+    
+    public List<ComputadoraEntidad> listaCompu() throws PersistenciaException;
 }

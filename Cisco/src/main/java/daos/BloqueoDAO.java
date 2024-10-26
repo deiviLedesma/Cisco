@@ -6,10 +6,12 @@ package daos;
 
 import Entidades.AlumnoEntidad;
 import Entidades.BloqueoEntidad;
+import Entidades.ComputadoraEntidad;
 import Entidades.UnidadAcademicaEntidad;
 import exceptions.PersistenciaException;
 import interfaces.IBloqueoDAO;
 import interfaces.IConexionBD;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -71,5 +73,21 @@ public class BloqueoDAO implements IBloqueoDAO{
         } finally {
             entityManager.close();
         }
+    }
+    
+    @Override
+    public List<BloqueoEntidad> listaBloqueos() throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        List<BloqueoEntidad> entidad = null;
+
+        try {
+            entidad = entityManager.createQuery("SELECT b FROM BloqueoEntidad b", BloqueoEntidad.class).getResultList();
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer todos los CentroComputo", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
     }
 }

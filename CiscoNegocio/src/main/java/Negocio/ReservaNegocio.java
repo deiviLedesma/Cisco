@@ -4,6 +4,7 @@
  */
 package Negocio;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -11,22 +12,63 @@ import java.util.Date;
  * @author Edgar Artuto Acevedo Acosta
  */
 public class ReservaNegocio {
-    public Date fechaReserva, horaInicio,horaFin;
+    public Long idReserva;
+    public Date horaInicio,horaFin;
+    public LocalDateTime fechaReserva;
+    public Long idAlumno, idPC;
 
-    public ReservaNegocio(Date fechaReserva, Date horaInicio, Date horaFin) {
-        this.fechaReserva = fechaReserva;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
+    public ReservaNegocio() {
     }
 
-    public Date getFechaReserva() {
+    public ReservaNegocio(Long idReserva, Date horaInicio, Date horaFin, LocalDateTime fechaReserva, Long idAlumno, Long idPC) {
+        this.idReserva = idReserva;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.fechaReserva = fechaReserva;
+        this.idAlumno = idAlumno;
+        this.idPC = idPC;
+    }
+
+    public ReservaNegocio(Long idReserva, Date horaInicio, Date horaFin, LocalDateTime fechaReserva) {
+        this.idReserva = idReserva;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.fechaReserva = fechaReserva;
+    }
+
+    public Long getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(Long idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public LocalDateTime getFechaReserva() {
         return fechaReserva;
     }
 
-    public void setFechaReserva(Date fechaReserva) {
+    public void setFechaReserva(LocalDateTime fechaReserva) {
         this.fechaReserva = fechaReserva;
     }
 
+    public Long getIdAlumno() {
+        return idAlumno;
+    }
+
+    public void setIdAlumno(Long idAlumno) {
+        this.idAlumno = idAlumno;
+    }
+
+    public Long getIdPC() {
+        return idPC;
+    }
+
+    public void setIdPC(Long idPC) {
+        this.idPC = idPC;
+    }
+    
+    
     public Date getHoraInicio() {
         return horaInicio;
     }

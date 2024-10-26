@@ -6,6 +6,7 @@ package interfaces;
 
 import Entidades.CentroDeComputoEntidad;
 import exceptions.PersistenciaException;
+import java.util.List;
 
 /**
  *
@@ -17,4 +18,8 @@ public interface ICentroDeComputoDAO {
     public void eliminarCentro(Long id) throws PersistenciaException;
     
     public void editarCentro(CentroDeComputoEntidad entidad) throws PersistenciaException;
+    
+    List<CentroDeComputoEntidad> listaCentrosPaginado(int pagina, int limite) throws PersistenciaException;
+    
+    List<CentroDeComputoEntidad> listaCentros() throws PersistenciaException;
 }

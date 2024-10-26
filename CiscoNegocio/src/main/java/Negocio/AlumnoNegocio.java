@@ -4,16 +4,25 @@
  */
 package Negocio;
 
+import java.util.List;
+
 /**
  *
  * @author Edgar Artuto Acevedo Acosta
  */
 public class AlumnoNegocio {
+    public Long idAlumno;
     public String nombreAlumno;
     public String apellidoPaterno;
     public String apellidoMaterno;
     public String contraseña;
+    public Long idCarrera;
+    private List<Long> idsReservas;
+    private List<Long> idsBloqueos;
 
+    public AlumnoNegocio() {
+    }
+    
     public AlumnoNegocio(String nombreAlumno, String apellidoPaterno, String apellidoMaterno, String contraseña) {
         this.nombreAlumno = nombreAlumno;
         this.apellidoPaterno = apellidoPaterno;
@@ -21,6 +30,55 @@ public class AlumnoNegocio {
         this.contraseña = contraseña;
     }
 
+    public AlumnoNegocio(Long idAlumno, String nombreAlumno, String apellidoPaterno, String apellidoMaterno, String contraseña, Long idCarrera) {
+        this.idAlumno = idAlumno;
+        this.nombreAlumno = nombreAlumno;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.contraseña = contraseña;
+        this.idCarrera = idCarrera;
+    }
+
+    public AlumnoNegocio(Long idAlumno, String nombreAlumno, String apellidoPaterno, String apellidoMaterno, String contraseña) {
+        this.idAlumno = idAlumno;
+        this.nombreAlumno = nombreAlumno;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.contraseña = contraseña;
+    }
+
+    public List<Long> getIdsReservas() {
+        return idsReservas;
+    }
+
+    public void setIdsReservas(List<Long> idsReservas) {
+        this.idsReservas = idsReservas;
+    }
+
+    public List<Long> getIdsBloqueos() {
+        return idsBloqueos;
+    }
+
+    public void setIdsBloqueos(List<Long> idsBloqueos) {
+        this.idsBloqueos = idsBloqueos;
+    }
+
+    public Long getIdAlumno() {
+        return idAlumno;
+    }
+
+    public void setIdAlumno(Long idAlumno) {
+        this.idAlumno = idAlumno;
+    }
+
+    public Long getIdCarrera() {
+        return idCarrera;
+    }
+
+    public void setIdCarrera(Long idCarrera) {
+        this.idCarrera = idCarrera;
+    }
+    
     public String getNombreAlumno() {
         return nombreAlumno;
     }

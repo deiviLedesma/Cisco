@@ -5,11 +5,13 @@
 package daos;
 
 import Entidades.AlumnoEntidad;
+import Entidades.CarreraEntidad;
 import Entidades.ComputadoraSoftwareEntidad;
 import Entidades.SoftwareEntidad;
 import exceptions.PersistenciaException;
 import interfaces.IConexionBD;
 import interfaces.ISoftwareDAO;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -84,6 +86,22 @@ public class SoftwareDAO implements ISoftwareDAO{
             entidad = entityManager.find(SoftwareEntidad.class, id);
         } catch (Exception e) {
             throw new PersistenciaException("Error al leer el software", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
+    }
+    
+    @Override
+    public List<SoftwareEntidad> listaSoftwares() throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        List<SoftwareEntidad> entidad = null;
+
+        try {
+            entidad = entityManager.createQuery("SELECT b FROM SoftwareEntidad b", SoftwareEntidad.class).getResultList();
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer todos los CentroComputo", e);
         } finally {
             entityManager.close();
         }

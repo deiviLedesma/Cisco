@@ -6,6 +6,7 @@ package interfaces;
 
 import Entidades.BloqueoEntidad;
 import exceptions.PersistenciaException;
+import java.util.List;
 
 /**
  *
@@ -16,5 +17,5 @@ public interface IBloqueoDAO {
     
     public void eliminarBloqueo(Long id) throws PersistenciaException;
     
-    
+    public List<BloqueoEntidad> listaBloqueos() throws PersistenciaException;
 }

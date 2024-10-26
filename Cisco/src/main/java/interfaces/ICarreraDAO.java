@@ -6,6 +6,7 @@ package interfaces;
 
 import Entidades.CarreraEntidad;
 import exceptions.PersistenciaException;
+import java.util.List;
 
 /**
  *
@@ -17,4 +18,10 @@ public interface ICarreraDAO {
     public CarreraEntidad consultarCarreraPorID(Long id) throws PersistenciaException;
     
     public void editarCarrera(CarreraEntidad entidad) throws PersistenciaException;
+    
+    public List<CarreraEntidad> listaCarreras() throws PersistenciaException;
+    
+    public List<CarreraEntidad> listaCarreras(int pagina, int limite) throws PersistenciaException;
+    
+    public void eliminarCarrera(Long id) throws PersistenciaException;
 }

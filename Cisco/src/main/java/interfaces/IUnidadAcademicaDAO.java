@@ -7,6 +7,7 @@ package interfaces;
 import Entidades.AlumnoEntidad;
 import Entidades.UnidadAcademicaEntidad;
 import exceptions.PersistenciaException;
+import java.util.List;
 
 /**
  *
@@ -16,4 +17,6 @@ public interface IUnidadAcademicaDAO {
     public void agregarUnidad(UnidadAcademicaEntidad unidad) throws PersistenciaException;
     
     public UnidadAcademicaEntidad consultarUnidadPorID(Long id) throws PersistenciaException;
+    
+    public List<UnidadAcademicaEntidad> listaUnidades() throws PersistenciaException;
 }

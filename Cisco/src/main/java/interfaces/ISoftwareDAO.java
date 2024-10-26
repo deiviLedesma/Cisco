@@ -6,6 +6,7 @@ package interfaces;
 
 import Entidades.SoftwareEntidad;
 import exceptions.PersistenciaException;
+import java.util.List;
 
 /**
  *
@@ -17,4 +18,6 @@ public interface ISoftwareDAO {
     public void eliminarAlumno(Long id) throws PersistenciaException;
     
     public SoftwareEntidad consultarSoftwarePorID(Long id) throws PersistenciaException;
+    
+    public List<SoftwareEntidad> listaSoftwares() throws PersistenciaException;
 }

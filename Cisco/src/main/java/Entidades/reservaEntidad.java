@@ -53,6 +53,61 @@ public class ReservaEntidad implements Serializable {
     public ReservaEntidad() {
     }
 
+    public ReservaEntidad(Long id, LocalDateTime fechaReserva, Time horaInicio, Time horaFin, AlumnoEntidad reservaAlumno, ComputadoraEntidad reservaCompu) {
+        this.id = id;
+        this.fechaReserva = fechaReserva;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.reservaAlumno = reservaAlumno;
+        this.reservaCompu = reservaCompu;
+    }
+
+    public ReservaEntidad(LocalDateTime fechaReserva, Time horaInicio, Time horaFin) {
+        this.fechaReserva = fechaReserva;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+    }
+
+    public LocalDateTime getFechaReserva() {
+        return fechaReserva;
+    }
+
+    public void setFechaReserva(LocalDateTime fechaReserva) {
+        this.fechaReserva = fechaReserva;
+    }
+
+    public Time getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Time horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public Time getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(Time horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    public AlumnoEntidad getReservaAlumno() {
+        return reservaAlumno;
+    }
+
+    public void setReservaAlumno(AlumnoEntidad reservaAlumno) {
+        this.reservaAlumno = reservaAlumno;
+    }
+
+    public ComputadoraEntidad getReservaCompu() {
+        return reservaCompu;
+    }
+
+    public void setReservaCompu(ComputadoraEntidad reservaCompu) {
+        this.reservaCompu = reservaCompu;
+    }
+
     
     public Long getId() {
         return id;

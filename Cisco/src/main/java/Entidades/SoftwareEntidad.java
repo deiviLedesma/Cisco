@@ -42,6 +42,32 @@ public class SoftwareEntidad implements Serializable {
     public SoftwareEntidad() {
     }
 
+    public SoftwareEntidad(Long id, String nombreSoftware, List<ComputadoraSoftwareEntidad> software) {
+        this.id = id;
+        this.nombreSoftware = nombreSoftware;
+        this.software = software;
+    }
+
+    public SoftwareEntidad(String nombreSoftware) {
+        this.nombreSoftware = nombreSoftware;
+    }
+
+    public String getNombreSoftware() {
+        return nombreSoftware;
+    }
+
+    public void setNombreSoftware(String nombreSoftware) {
+        this.nombreSoftware = nombreSoftware;
+    }
+
+    public List<ComputadoraSoftwareEntidad> getSoftware() {
+        return software;
+    }
+
+    public void setSoftware(List<ComputadoraSoftwareEntidad> software) {
+        this.software = software;
+    }
+
     
     public Long getId() {
         return id;

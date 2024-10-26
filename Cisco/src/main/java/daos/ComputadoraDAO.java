@@ -5,11 +5,13 @@
 package daos;
 
 import Entidades.AlumnoEntidad;
+import Entidades.CentroDeComputoEntidad;
 import Entidades.ComputadoraEntidad;
 import Entidades.UnidadAcademicaEntidad;
 import exceptions.PersistenciaException;
 import interfaces.IComputadoraDAO;
 import interfaces.IConexionBD;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -87,6 +89,22 @@ public class ComputadoraDAO implements IComputadoraDAO{
             entidad = entityManager.find(ComputadoraEntidad.class, id);
         } catch (Exception e) {
             throw new PersistenciaException("Error al leer la computadora", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
+    }
+    
+    @Override
+    public List<ComputadoraEntidad> listaCompu() throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        List<ComputadoraEntidad> entidad = null;
+
+        try {
+            entidad = entityManager.createQuery("SELECT b FROM ComputadoraEntidad b", ComputadoraEntidad.class).getResultList();
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer las computadoras", e);
         } finally {
             entityManager.close();
         }
