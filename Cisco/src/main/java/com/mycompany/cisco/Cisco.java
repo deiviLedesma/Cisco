@@ -28,18 +28,11 @@ public class Cisco {
 
     public static void main(String[] args) throws PersistenciaException {
         IConexionBD conexion = new ConexionBD();
-        UnidadAcademicaEntidad unidad = new UnidadAcademicaEntidad("unidad");
-        UnidadAcademicaDAO unidadDAO = new UnidadAcademicaDAO(conexion);
-        CentroDeComputoDAO centroDAO = new CentroDeComputoDAO(conexion);
-        CentroDeComputoEntidad centro1 = new CentroDeComputoEntidad(151L,"centroEditado2", "Felipez", Time.valueOf("5:03:00"), Time.valueOf("8:00:00"));
-        List<CentroDeComputoEntidad> centros = new ArrayList<>();
-        centros.add(centro1);
-        unidadDAO.consultarUnidadPorID(1L).setCentroUnidad(centros);
+        CentroDeComputoDAO centro = new CentroDeComputoDAO();
         
-        centro1.setCentroUnidad(unidadDAO.consultarUnidadPorID(1L));
-        
-        List<CentroDeComputoEntidad> centros2 = new ArrayList<>();
-        centros = centroDAO.listaCentros();
-        System.out.println(centros.get(0));
+        List<CentroDeComputoEntidad> centros = centro.listaCentrosPaginado(1, 3, "editado");
+        for(CentroDeComputoEntidad entidad: centros){
+            System.out.println(entidad);
+        }
     }
 }

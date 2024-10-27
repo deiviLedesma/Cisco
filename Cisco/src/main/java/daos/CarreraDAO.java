@@ -22,10 +22,6 @@ import javax.persistence.EntityTransaction;
 public class CarreraDAO implements ICarreraDAO {
     private IConexionBD conexionBD;
 
-    public CarreraDAO(IConexionBD conexionBD) {
-        this.conexionBD = conexionBD;
-    }
-
     public CarreraDAO() {
         this.conexionBD = new ConexionBD();
     }

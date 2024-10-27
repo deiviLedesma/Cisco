@@ -22,8 +22,8 @@ import javax.persistence.EntityTransaction;
 public class BloqueoDAO implements IBloqueoDAO{
     private IConexionBD conexionBD;
 
-    public BloqueoDAO(IConexionBD conexionBD) {
-        this.conexionBD = conexionBD;
+    public BloqueoDAO() {
+        this.conexionBD = new ConexionBD();
     }
     /**
      * 
@@ -48,6 +48,7 @@ public class BloqueoDAO implements IBloqueoDAO{
             entityManager.close();
         }
     }
+    
     /**
      * 
      * @param id
@@ -73,6 +74,28 @@ public class BloqueoDAO implements IBloqueoDAO{
         } finally {
             entityManager.close();
         }
+    }
+    
+    /**
+     * 
+     * @param id
+     * @return
+     * @throws PersistenciaException 
+     */
+    @Override
+    public BloqueoEntidad consultarBloqueoPorID(Long id) throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        BloqueoEntidad entidad = null;
+
+        try {
+            entidad = entityManager.find(BloqueoEntidad.class, id);
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al leer la computadora", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
     }
     
     @Override

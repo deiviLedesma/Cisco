@@ -4,6 +4,7 @@
  */
 package Negocio;
 
+import java.sql.Time;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -13,14 +14,14 @@ import java.util.Date;
  */
 public class ReservaNegocio {
     public Long idReserva;
-    public Date horaInicio,horaFin;
+    public Time horaInicio,horaFin;
     public LocalDateTime fechaReserva;
     public Long idAlumno, idPC;
 
     public ReservaNegocio() {
     }
 
-    public ReservaNegocio(Long idReserva, Date horaInicio, Date horaFin, LocalDateTime fechaReserva, Long idAlumno, Long idPC) {
+    public ReservaNegocio(Long idReserva, Time horaInicio, Time horaFin, LocalDateTime fechaReserva, Long idAlumno, Long idPC) {
         this.idReserva = idReserva;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
@@ -29,12 +30,36 @@ public class ReservaNegocio {
         this.idPC = idPC;
     }
 
-    public ReservaNegocio(Long idReserva, Date horaInicio, Date horaFin, LocalDateTime fechaReserva) {
-        this.idReserva = idReserva;
+    public ReservaNegocio(Time horaInicio, Time horaFin, LocalDateTime fechaReserva, Long idAlumno, Long idPC) {
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.fechaReserva = fechaReserva;
+        this.idAlumno = idAlumno;
+        this.idPC = idPC;
+    }
+
+    public ReservaNegocio(Time horaInicio, Time horaFin, LocalDateTime fechaReserva) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.fechaReserva = fechaReserva;
     }
+
+    public Time getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Time horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public Time getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(Time horaFin) {
+        this.horaFin = horaFin;
+    }
+    
 
     public Long getIdReserva() {
         return idReserva;
@@ -68,22 +93,7 @@ public class ReservaNegocio {
         this.idPC = idPC;
     }
     
-    
-    public Date getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(Date horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public Date getHoraFin() {
-        return horaFin;
-    }
-
-    public void setHoraFin(Date horaFin) {
-        this.horaFin = horaFin;
-    }
+   
 
     @Override
     public String toString() {

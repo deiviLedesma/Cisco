@@ -22,8 +22,8 @@ import javax.persistence.EntityTransaction;
 public class SoftwareDAO implements ISoftwareDAO{
     private IConexionBD conexionBD;
 
-    public SoftwareDAO(IConexionBD conexionBD) {
-        this.conexionBD = conexionBD;
+    public SoftwareDAO() {
+        this.conexionBD = new ConexionBD();
     }
     /**
      * 

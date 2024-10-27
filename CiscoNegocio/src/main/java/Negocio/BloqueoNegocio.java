@@ -24,6 +24,12 @@ public class BloqueoNegocio {
         this.idAlumno = idAlumno;
     }
 
+    public BloqueoNegocio(String motivo, LocalDateTime fechaDeBloqueo, Long idAlumno) {
+        this.motivo = motivo;
+        this.fechaDeBloqueo = fechaDeBloqueo;
+        this.idAlumno = idAlumno;
+    }
+
     public BloqueoNegocio(String motivo, LocalDateTime fechaDeBloqueo) {
         this.motivo = motivo;
         this.fechaDeBloqueo = fechaDeBloqueo;

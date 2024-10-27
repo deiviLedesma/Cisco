@@ -103,7 +103,7 @@ public class UnidadAcademicaEntidad implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.unidadAcademicaEntidad[ id=" + id + " ]";
+        return "Entidades.unidadAcademicaEntidad[ id=" + id + " ]" + "nombre: " + this.getNombreUnidad();
     }
     
 }

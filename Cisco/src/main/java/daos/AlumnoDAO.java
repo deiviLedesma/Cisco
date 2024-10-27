@@ -20,8 +20,8 @@ import javax.persistence.EntityTransaction;
 public class AlumnoDAO implements IAlumnoDAO{
     private IConexionBD conexionBD;
 
-    public AlumnoDAO(IConexionBD conexionBD) {
-        this.conexionBD = conexionBD;
+    public AlumnoDAO() {
+        this.conexionBD = new ConexionBD();
     }
     /**
      * 

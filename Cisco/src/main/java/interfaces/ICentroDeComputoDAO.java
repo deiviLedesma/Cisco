@@ -19,7 +19,9 @@ public interface ICentroDeComputoDAO {
     
     public void editarCentro(CentroDeComputoEntidad entidad) throws PersistenciaException;
     
-    List<CentroDeComputoEntidad> listaCentrosPaginado(int pagina, int limite) throws PersistenciaException;
+    public CentroDeComputoEntidad consultarCentroPorID(Long id) throws PersistenciaException;
+    
+    List<CentroDeComputoEntidad> listaCentrosPaginado(int pagina, int limite,String nombreDeCentro) throws PersistenciaException;
     
     List<CentroDeComputoEntidad> listaCentros() throws PersistenciaException;
 }

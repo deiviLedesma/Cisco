@@ -20,8 +20,8 @@ import javax.persistence.EntityTransaction;
 public class ReservaDAO implements IReservaDAO {
     private IConexionBD conexionBD;
 
-    public ReservaDAO(IConexionBD conexionBD) {
-        this.conexionBD = conexionBD;
+    public ReservaDAO() {
+        this.conexionBD = new ConexionBD();
     }
     /**
      * 
