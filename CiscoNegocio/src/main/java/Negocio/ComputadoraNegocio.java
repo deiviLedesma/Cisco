@@ -92,6 +92,22 @@ public class ComputadoraNegocio {
         this.ip = ip;
     }
 
+    public List<Long> getIdsReservas() {
+        return idsReservas;
+    }
+
+    public void setIdsReservas(List<Long> idsReservas) {
+        this.idsReservas = idsReservas;
+    }
+
+    public List<Long> getIdsSoftwares() {
+        return idsSoftwares;
+    }
+
+    public void setIdsSoftwares(List<Long> idsSoftwares) {
+        this.idsSoftwares = idsSoftwares;
+    }
+
     @Override
     public String toString() {
         return "ComputadoraNegocio{" + "numeroMaquina=" + numeroMaquina + ", estatus=" + estatus + ", ip=" + ip + '}';

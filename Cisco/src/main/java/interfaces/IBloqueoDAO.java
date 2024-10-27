@@ -18,4 +18,6 @@ public interface IBloqueoDAO {
     public void eliminarBloqueo(Long id) throws PersistenciaException;
     
     public List<BloqueoEntidad> listaBloqueos() throws PersistenciaException;
+    
+    BloqueoEntidad consultarBloqueoPorID(Long id) throws PersistenciaException;
 }

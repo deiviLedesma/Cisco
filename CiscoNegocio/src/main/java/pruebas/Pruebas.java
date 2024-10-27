@@ -4,10 +4,33 @@
  */
 package pruebas;
 
+import Entidades.CentroDeComputoEntidad;
+import Entidades.ComputadoraEntidad;
+import Negocio.AlumnoNegocio;
+import Negocio.BloqueoNegocio;
 import Negocio.CarreraNegocio;
+import Negocio.CentroComputoNegocio;
+import Negocio.ComputadoraNegocio;
+import Negocio.ComputadoraSoftwareNegocio;
+import Negocio.ReservaNegocio;
+import Negocio.SoftwareNegocio;
 import Negocio.UnidadAcademicaNegocio;
 import exceptions.NegocioException;
+import java.sql.Time;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import service.AlumnoService;
+import service.BloqueoService;
 import service.CarreraService;
+import service.CentroDeComputoService;
+import service.ComputadoraService;
+import service.ComputadoraSoftwareService;
+import service.ReservaService;
+import service.SoftwareService;
 import service.UnidadAcademicaService;
 
 /**
@@ -19,16 +42,17 @@ public class Pruebas {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws NegocioException {
-        UnidadAcademicaService unidadService = new UnidadAcademicaService();
-        UnidadAcademicaNegocio unidadNegocio = new UnidadAcademicaNegocio("Unidad1");
-        UnidadAcademicaNegocio unidadNegocio2 = new UnidadAcademicaNegocio("Unidad2");
-        UnidadAcademicaNegocio unidadNegocio3 = new UnidadAcademicaNegocio("Unidad3");
+    public static void main(String[] args) {
+        CentroDeComputoService centro = new CentroDeComputoService();
         
-        unidadService.agregarUnidad(unidadNegocio);
-        unidadService.agregarUnidad(unidadNegocio2);
-        unidadService.agregarUnidad(unidadNegocio3);
-        
+        try {
+            List<CentroComputoNegocio> centros = centro.listaCentrosPaginado(1, 3, "editado");
+            for(CentroComputoNegocio entidad: centros){
+            System.out.println(entidad);
+        }
+        } catch (NegocioException ex) {
+            Logger.getLogger(Pruebas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
+
 }

@@ -4,7 +4,6 @@
  */
 package interfaces;
 
-import Entidades.AlumnoEntidad;
 import Entidades.UnidadAcademicaEntidad;
 import exceptions.PersistenciaException;
 import java.util.List;

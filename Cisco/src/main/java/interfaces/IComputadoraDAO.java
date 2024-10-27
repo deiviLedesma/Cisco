@@ -15,6 +15,8 @@ import java.util.List;
 public interface IComputadoraDAO {
     public void agregarComputadora(ComputadoraEntidad entidad) throws PersistenciaException;
     
+    public void editarComputadora(ComputadoraEntidad entidad) throws PersistenciaException;
+    
     public void eliminarComputadora(Long id) throws PersistenciaException;
     
     public ComputadoraEntidad consultarPCPorID(Long id) throws PersistenciaException;

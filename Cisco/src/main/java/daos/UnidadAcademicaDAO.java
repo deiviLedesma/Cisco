@@ -65,7 +65,7 @@ public class UnidadAcademicaDAO implements IUnidadAcademicaDAO{
         try {
             unidad = entityManager.find(UnidadAcademicaEntidad.class, id);
         } catch (Exception e) {
-            throw new PersistenciaException("Error al leer abono", e);
+            throw new PersistenciaException("Error la entidad", e);
         } finally {
             entityManager.close();
         }

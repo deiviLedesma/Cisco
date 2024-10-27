@@ -6,6 +6,7 @@ package daos;
 
 import Entidades.CarreraEntidad;
 import Entidades.CentroDeComputoEntidad;
+import Entidades.UnidadAcademicaEntidad;
 import exceptions.PersistenciaException;
 import interfaces.ICentroDeComputoDAO;
 import interfaces.IConexionBD;
@@ -103,20 +104,43 @@ public class CentroDeComputoDAO implements ICentroDeComputoDAO{
     
     /**
      * 
+     * @param id
+     * @return
+     * @throws PersistenciaException 
+     */
+    @Override
+    public CentroDeComputoEntidad consultarCentroPorID(Long id) throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        CentroDeComputoEntidad entidad = null;
+
+        try {
+            entidad = entityManager.find(CentroDeComputoEntidad.class, id);
+        } catch (Exception e) {
+            throw new PersistenciaException("Error la entidad", e);
+        } finally {
+            entityManager.close();
+        }
+
+        return entidad;
+    }
+    
+    /**
+     * 
      * @param pagina
      * @param limite
      * @return
      * @throws PersistenciaException 
      */
     @Override
-    public List<CentroDeComputoEntidad> listaCentrosPaginado(int pagina, int limite) throws PersistenciaException {
+    public List<CentroDeComputoEntidad> listaCentrosPaginado(int pagina, int limite,String nombreDeCentro) throws PersistenciaException {
         EntityManager entityManager = conexionBD.obtenerEntityManager();
         List<CentroDeComputoEntidad> entidad = null;
 
         try {
-            entidad = entityManager.createQuery("SELECT b FROM CentroDeComputoEntidad b", CentroDeComputoEntidad.class)
+            entidad = entityManager.createQuery("SELECT b FROM CentroDeComputoEntidad b WHERE b.nombreDeCentro LIKE :nombreDeCentro", CentroDeComputoEntidad.class)
                     .setFirstResult((pagina - 1) * limite)
                     .setMaxResults(limite)
+                    .setParameter("nombreDeCentro", "%"+nombreDeCentro+"%")
                     .getResultList();
         } catch (Exception e) {
             throw new PersistenciaException("Error al leer todos los CentroComputo", e);

@@ -25,6 +25,10 @@ public class ComputadoraDAO implements IComputadoraDAO{
     public ComputadoraDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
+    
+    public ComputadoraDAO() {
+        this.conexionBD = new ConexionBD();
+    }
     /**
      * 
      * @param entidad
@@ -48,6 +52,31 @@ public class ComputadoraDAO implements IComputadoraDAO{
             entityManager.close();
         }
     }
+    
+    /**
+     * 
+     * @param entidad
+     * @throws PersistenciaException 
+     */
+    @Override
+    public void editarComputadora(ComputadoraEntidad entidad) throws PersistenciaException {
+        EntityManager entityManager = conexionBD.obtenerEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+
+        try {
+            entityTransaction.begin();
+            entityManager.merge(entidad);
+            entityTransaction.commit();
+        } catch (Exception e) {
+            if (entityTransaction.isActive()) {
+                entityTransaction.rollback();
+            }
+            throw new PersistenciaException("Error al actualizar beneficiario", e);
+        } finally {
+            entityManager.close();
+        }
+    }
+    
     /**
      * 
      * @param id

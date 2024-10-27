@@ -4,17 +4,16 @@
  */
 package service;
 
-import Entidades.CarreraEntidad;
 import Entidades.CentroDeComputoEntidad;
-import Negocio.CarreraNegocio;
 import Negocio.CentroComputoNegocio;
-import static convertidores.CarreraConvertidor.convertirDTOAEntidad;
-import daos.CarreraDAO;
+import static convertidores.CentroConvertidor.convertirDTOAEntidad;
+import static convertidores.CentroConvertidor.convertirEntidadADTO;
 import daos.CentroDeComputoDAO;
 import exceptions.NegocioException;
 import exceptions.PersistenciaException;
-import interfaces.ICarreraDAO;
 import interfaces.ICentroDeComputoDAO;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -45,10 +44,50 @@ public class CentroDeComputoService {
 
             centroDAO.agregarCentro(entidad);
         } catch (PersistenciaException e) {
-            throw new NegocioException("Error al agregar la carrera en la capa de negocio", e);
+            throw new NegocioException("Error al agregar en centro en la capa de negocio", e);
         }
     }
     
+    public void editarCentro(CentroComputoNegocio dto) throws NegocioException {
+
+        validarCentro(dto);
+
+        try {
+            CentroDeComputoEntidad entidad = convertirDTOAEntidad(dto);
+
+            centroDAO.editarCentro(entidad);
+        } catch (PersistenciaException e) {
+            throw new NegocioException("Error al agregar en centro en la capa de negocio", e);
+        }
+    }
+    
+    /**
+     * 
+     * @param limite
+     * @param numeroPagina
+     * @param nombreCentro
+     * @return
+     * @throws NegocioException 
+     */
+    public List<CentroComputoNegocio> listaCentrosPaginado(int limite, int numeroPagina, String nombreCentro) throws NegocioException {
+        System.out.println(numeroPagina);
+        try {
+            List<CentroDeComputoEntidad> listaEntidad = centroDAO.listaCentrosPaginado(limite, numeroPagina, nombreCentro);
+            List<CentroComputoNegocio> listaCentrosDTO = new ArrayList<>();
+
+            for (CentroDeComputoEntidad centro : listaEntidad) {
+                CentroComputoNegocio centroDTO = convertirEntidadADTO(centro);
+                listaCentrosDTO.add(centroDTO);
+            }
+            if (listaCentrosDTO.isEmpty() && numeroPagina == 1) {
+                throw new NegocioException("No existen centros registrados");
+
+            }
+            return listaCentrosDTO;
+        } catch (PersistenciaException e) {
+            throw new NegocioException("Error al obtener la lista de los centros de computo desde la base de datos.", e);
+        }
+    }
     /**
      * 
      * @param centro

@@ -16,6 +16,8 @@ public class AlumnoNegocio {
     public String apellidoPaterno;
     public String apellidoMaterno;
     public String contraseña;
+    public String status;
+    private int minutosReservados;
     public Long idCarrera;
     private List<Long> idsReservas;
     private List<Long> idsBloqueos;
@@ -45,6 +47,31 @@ public class AlumnoNegocio {
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.contraseña = contraseña;
+    }
+
+    public AlumnoNegocio(String nombreAlumno, String apellidoPaterno, String apellidoMaterno, String contraseña, String status, int minutosReservados) {
+        this.nombreAlumno = nombreAlumno;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.contraseña = contraseña;
+        this.status = status;
+        this.minutosReservados = minutosReservados;
+    }
+
+    public int getMinutosReservados() {
+        return minutosReservados;
+    }
+
+    public void setMinutosReservados(int minutosReservados) {
+        this.minutosReservados = minutosReservados;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public List<Long> getIdsReservas() {

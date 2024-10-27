@@ -20,8 +20,8 @@ import javax.persistence.EntityTransaction;
 public class ComputadoraSoftwareDAO implements IComputadoraSoftwareDAO{
     private IConexionBD conexionBD;
 
-    public ComputadoraSoftwareDAO(IConexionBD conexionBD) {
-        this.conexionBD = conexionBD;
+    public ComputadoraSoftwareDAO() {
+        this.conexionBD = new ConexionBD();
     }
     
     /**
