@@ -54,7 +54,7 @@ public class FrmAlumnoApartar extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 153));
 
         jPanel2.setBackground(new java.awt.Color(233, 233, 239));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
 
         txtNombreAlumno.setEditable(false);
         txtNombreAlumno.setText("nombre alumno");
