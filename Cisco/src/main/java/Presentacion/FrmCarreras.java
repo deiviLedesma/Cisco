@@ -73,7 +73,6 @@ public class FrmCarreras extends javax.swing.JFrame {
         jLabel2.setText("Carrera");
 
         jbxCarreras.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        jbxCarreras.setModel(listaCarreras);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

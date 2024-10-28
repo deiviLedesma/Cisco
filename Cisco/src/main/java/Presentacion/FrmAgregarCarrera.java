@@ -180,7 +180,7 @@ public class FrmAgregarCarrera extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
-        FrmMenu fm = new FrmMenu();
+        FrmMenu_1 fm = new FrmMenu_1();
         fm.setVisible(true);
         dispose();
         
