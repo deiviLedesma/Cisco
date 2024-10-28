@@ -12,7 +12,8 @@ import Entidades.carreraEntidad;
  */
 public class FrmAgregarCarrera extends javax.swing.JFrame {
 
-    carreraEntidad ce = new CarreraEntidad();
+    carreraEntidad ce;
+    CarreraDAO cdao = new CarreraDAO();
     /**
      * Creates new form FrmAgregarEquipo
      */
@@ -180,10 +181,10 @@ public class FrmAgregarCarrera extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        // TODO add your handling code here:
-        FrmCentrosComputo fcc = new FrmCentrosComputo();
-        fcc.setVisible(true);
-        this.dispose();
+       String carrera = txtNombre.getText();
+       Integer tiempo = parseInt(txtTiempo.getText());
+
+       ce. 
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
 
