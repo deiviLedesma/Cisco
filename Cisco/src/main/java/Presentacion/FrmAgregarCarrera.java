@@ -4,12 +4,15 @@
  */
 package Presentacion;
 
+import Entidades.carreraEntidad;
+
 /**
  *
  * @author edgar
  */
 public class FrmAgregarCarrera extends javax.swing.JFrame {
 
+    carreraEntidad ce = new CarreraEntidad();
     /**
      * Creates new form FrmAgregarEquipo
      */
