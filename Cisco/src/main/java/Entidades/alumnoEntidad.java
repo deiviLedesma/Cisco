@@ -20,7 +20,7 @@ import javax.persistence.OneToOne;
 
 
 /**
- *
+ *123
  * @author filor
  */
 @Entity
@@ -56,15 +56,109 @@ public class AlumnoEntidad implements Serializable {
     @JoinColumn(name = "idCarrera", nullable = false)
     private CarreraEntidad carreraEntidad;
     
-    @OneToMany(mappedBy = "bloqueoAlumno", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "bloqueoAlumno")
     private List<BloqueoEntidad> bloqueoAlumno;
     
-    @OneToMany(mappedBy = "reservaAlumno", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "reservaAlumno")
     private List<ReservaEntidad> reservaAlumno;
     /**
      * 
      */
     public AlumnoEntidad() {
+    }
+
+    public AlumnoEntidad(Long id, String nombres, String aPaterno, String aMaterno, String contrasenha, String estatus, int minutosReservados, CarreraEntidad carreraEntidad, List<BloqueoEntidad> bloqueoAlumno, List<ReservaEntidad> reservaAlumno) {
+        this.id = id;
+        this.nombres = nombres;
+        this.aPaterno = aPaterno;
+        this.aMaterno = aMaterno;
+        this.contrasenha = contrasenha;
+        this.estatus = estatus;
+        this.minutosReservados = minutosReservados;
+        this.carreraEntidad = carreraEntidad;
+        this.bloqueoAlumno = bloqueoAlumno;
+        this.reservaAlumno = reservaAlumno;
+    }
+
+    public AlumnoEntidad(String nombres, String aPaterno, String aMaterno, String contrasenha, String estatus, int minutosReservados) {
+        this.nombres = nombres;
+        this.aPaterno = aPaterno;
+        this.aMaterno = aMaterno;
+        this.contrasenha = contrasenha;
+        this.estatus = estatus;
+        this.minutosReservados = minutosReservados;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getaPaterno() {
+        return aPaterno;
+    }
+
+    public void setaPaterno(String aPaterno) {
+        this.aPaterno = aPaterno;
+    }
+
+    public String getaMaterno() {
+        return aMaterno;
+    }
+
+    public void setaMaterno(String aMaterno) {
+        this.aMaterno = aMaterno;
+    }
+
+    public String getContrasenha() {
+        return contrasenha;
+    }
+
+    public void setContrasenha(String contrasenha) {
+        this.contrasenha = contrasenha;
+    }
+
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+
+    public int getMinutosReservados() {
+        return minutosReservados;
+    }
+
+    public void setMinutosReservados(int minutosReservados) {
+        this.minutosReservados = minutosReservados;
+    }
+
+    public CarreraEntidad getCarreraEntidad() {
+        return carreraEntidad;
+    }
+
+    public void setCarreraEntidad(CarreraEntidad carreraEntidad) {
+        this.carreraEntidad = carreraEntidad;
+    }
+
+    public List<BloqueoEntidad> getBloqueoAlumno() {
+        return bloqueoAlumno;
+    }
+
+    public void setBloqueoAlumno(List<BloqueoEntidad> bloqueoAlumno) {
+        this.bloqueoAlumno = bloqueoAlumno;
+    }
+
+    public List<ReservaEntidad> getReservaAlumno() {
+        return reservaAlumno;
+    }
+
+    public void setReservaAlumno(List<ReservaEntidad> reservaAlumno) {
+        this.reservaAlumno = reservaAlumno;
     }
 
     

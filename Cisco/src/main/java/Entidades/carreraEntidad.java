@@ -37,7 +37,7 @@ public class CarreraEntidad implements Serializable {
     @Column(name="tiempoLimite",nullable=false)
     private int tiempoLimite;
     
-    @OneToMany(mappedBy = "carreraEntidad", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "carreraEntidad")
     private List<AlumnoEntidad> carreraAlumno;
     
     /**

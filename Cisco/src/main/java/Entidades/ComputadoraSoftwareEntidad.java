@@ -35,6 +35,28 @@ public class ComputadoraSoftwareEntidad implements Serializable {
     public ComputadoraSoftwareEntidad() {
     }
 
+    public ComputadoraSoftwareEntidad(Long id, ComputadoraEntidad computadora, SoftwareEntidad software) {
+        this.id = id;
+        this.computadora = computadora;
+        this.software = software;
+    }
+
+    public ComputadoraEntidad getComputadora() {
+        return computadora;
+    }
+
+    public void setComputadora(ComputadoraEntidad computadora) {
+        this.computadora = computadora;
+    }
+
+    public SoftwareEntidad getSoftware() {
+        return software;
+    }
+
+    public void setSoftware(SoftwareEntidad software) {
+        this.software = software;
+    }
+
     
     public Long getId() {
         return id;

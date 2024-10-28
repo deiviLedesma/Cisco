@@ -5,12 +5,17 @@
 package com.mycompany.cisco;
 
 import Entidades.CarreraEntidad;
+import Entidades.CentroDeComputoEntidad;
 import Entidades.UnidadAcademicaEntidad;
 import daos.CarreraDAO;
+import daos.CentroDeComputoDAO;
 import daos.ConexionBD;
 import daos.UnidadAcademicaDAO;
 import exceptions.PersistenciaException;
 import interfaces.IConexionBD;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -23,15 +28,11 @@ public class Cisco {
 
     public static void main(String[] args) throws PersistenciaException {
         IConexionBD conexion = new ConexionBD();
+        CentroDeComputoDAO centro = new CentroDeComputoDAO();
         
-        UnidadAcademicaEntidad uae = new UnidadAcademicaEntidad("asd");
-        CarreraEntidad carrera = new CarreraEntidad("isw",7);
-        
-        CarreraDAO carreraD = new CarreraDAO(conexion);
-        UnidadAcademicaDAO unidadDAO = new UnidadAcademicaDAO(conexion);
-        
-        carreraD.agregarCarrera(carrera);
-        unidadDAO.agregarCarrera(uae);
-        
+        List<CentroDeComputoEntidad> centros = centro.listaCentrosPaginado(1, 3, "editado");
+        for(CentroDeComputoEntidad entidad: centros){
+            System.out.println(entidad);
+        }
     }
 }

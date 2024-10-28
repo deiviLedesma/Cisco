@@ -32,12 +32,18 @@ public class UnidadAcademicaEntidad implements Serializable {
     @Column(name="nombreUnidad",length=100,nullable=false)
     private String nombreUnidad;
     
-    @OneToMany(mappedBy = "centroUnidad", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "centroUnidad")
     private List<CentroDeComputoEntidad> centroUnidad;
     /**
      * 
      */
     public UnidadAcademicaEntidad() {
+    }
+
+    public UnidadAcademicaEntidad(Long id, String nombreUnidad, List<CentroDeComputoEntidad> centroUnidad) {
+        this.id = id;
+        this.nombreUnidad = nombreUnidad;
+        this.centroUnidad = centroUnidad;
     }
 
     public UnidadAcademicaEntidad(String nombreUnidad) {
@@ -97,7 +103,7 @@ public class UnidadAcademicaEntidad implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.unidadAcademicaEntidad[ id=" + id + " ]";
+        return "Entidades.unidadAcademicaEntidad[ id=" + id + " ]" + "nombre: " + this.getNombreUnidad();
     }
     
 }
