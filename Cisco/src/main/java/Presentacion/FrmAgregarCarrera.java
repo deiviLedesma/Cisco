@@ -4,7 +4,11 @@
  */
 package Presentacion;
 
-import Entidades.carreraEntidad;
+import Entidades.CarreraEntidad;
+import daos.CarreraDAO;
+import exceptions.PersistenciaException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -12,7 +16,7 @@ import Entidades.carreraEntidad;
  */
 public class FrmAgregarCarrera extends javax.swing.JFrame {
 
-    carreraEntidad ce;
+  CarreraEntidad ce;
     CarreraDAO cdao = new CarreraDAO();
     /**
      * Creates new form FrmAgregarEquipo
@@ -176,15 +180,23 @@ public class FrmAgregarCarrera extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
-        // TODO add your handling code here:
+        FrmMenu fm = new FrmMenu();
+        fm.setVisible(true);
         dispose();
+        
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
        String carrera = txtNombre.getText();
-       Integer tiempo = parseInt(txtTiempo.getText());
+       int tiempo = Integer.parseInt(txtTiempo.getText());
 
-       ce. 
+       ce.setNombreDeCarrera(carrera);
+       ce.setTiempoLimite(tiempo);
+        try {
+            cdao.agregarCarrera(ce);
+        } catch (PersistenciaException ex) {
+            Logger.getLogger(FrmAgregarCarrera.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
 
