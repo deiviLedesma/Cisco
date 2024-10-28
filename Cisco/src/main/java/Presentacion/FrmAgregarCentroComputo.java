@@ -4,12 +4,23 @@
  */
 package Presentacion;
 
+import Entidades.CentroDeComputoEntidad;
+import Negocio.CentroComputoNegocio;
+import daos.CentroDeComputoDAO;
+import daos.UnidadAcademicaDAO;
+import exceptions.PersistenciaException;
+import java.sql.Time;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author edgar
  */
 public class FrmAgregarCentroComputo extends javax.swing.JFrame {
 
+    UnidadAcademicaDAO unidadDAO = new UnidadAcademicaDAO();
+    CentroDeComputoDAO centroDAO = new CentroDeComputoDAO();
     /**
      * Creates new form FrmAgregarCentroComputo
      */
@@ -30,11 +41,11 @@ public class FrmAgregarCentroComputo extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtApertura = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCierre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         pswContraseña = new javax.swing.JPasswordField();
         btnAgregar = new javax.swing.JButton();
@@ -53,20 +64,20 @@ public class FrmAgregarCentroComputo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel2.setText("Nombre:");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        jTextField1.setText("Centro de computo");
+        txtNombre.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
+        txtNombre.setText("Centro de computo");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel3.setText("Hora de Apertura");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        jTextField2.setText("hh:mm");
+        txtApertura.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
+        txtApertura.setText("hh:mm");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel4.setText("Hora de Cierre");
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        jTextField3.setText("hh:mm");
+        txtCierre.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
+        txtCierre.setText("hh:mm");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel5.setText("Contraseña maestra");
@@ -112,9 +123,9 @@ public class FrmAgregarCentroComputo extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCierre, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pswContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(209, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -132,15 +143,15 @@ public class FrmAgregarCentroComputo extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCierre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -190,13 +201,62 @@ public class FrmAgregarCentroComputo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+                                          
+            // TODO add your handling code here:
+            CentroDeComputoEntidad centro;
+            String nombre = txtNombre.getText();
+            String contraseña = pswContraseña.getText();
+            Time apertura = Time.valueOf(txtApertura.getText());
+            Time cierre = Time.valueOf(txtCierre.getText());
+            try {
+                
+                centro  = new CentroDeComputoEntidad(nombre, contraseña, apertura, cierre);
+                centro.setCentroUnidad(unidadDAO.consultarUnidadPorID(351L));
+                centroDAO.agregarCentro(centro);
+            } catch (PersistenciaException ex) {
+                Logger.getLogger(FrmAgregarCentroComputo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmAgregarCentroComputo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmAgregarCentroComputo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmAgregarCentroComputo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmAgregarCentroComputo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmAgregarCentroComputo().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
@@ -208,9 +268,9 @@ public class FrmAgregarCentroComputo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JPasswordField pswContraseña;
+    private javax.swing.JTextField txtApertura;
+    private javax.swing.JTextField txtCierre;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

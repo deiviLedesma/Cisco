@@ -47,7 +47,6 @@ public class FrmEditarPc extends javax.swing.JFrame {
         jLabel2.setText("Editar Equipo");
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        jComboBox1.setModel(listaCarreras);
 
         btnCancelar.setBackground(new java.awt.Color(51, 51, 255));
         btnCancelar.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
